@@ -26,7 +26,8 @@
                     <div class="image">
                         <label>画像：</label>
                         <span id="imagePreviews" width=""></span>
-                        <input type="file" name="files[]" id="fileInput" multiple="multiple" onchange="previewImages()">
+                        <input type="button" id="loadFileXml" value="画像" class="imageButton" onclick="document.getElementById('fileInput').click();" />
+                        <input type="file" style="display:none;" name="files[]" id="fileInput" multiple="multiple" onchange="previewImages()">
                     </div>
                     <div>
                         <label>個数：</label><input class="input-box-number" type="text" style="padding: 5px;" placeholder="個数を入力してください" required="required" name="piece" v-model="piece"/>

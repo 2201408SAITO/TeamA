@@ -83,6 +83,16 @@ label{
     width: 30%;
 }
 
+.imageButton{
+    background-color: #162938;
+    font-weight: bold;
+    color: #fff;
+    padding: 0.5em;
+    border: thin solid #162938;
+    border-radius: 5px;
+    width: 50px;
+  }
+
 .body div{
     padding-bottom:20px;
 }
