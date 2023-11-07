@@ -29,7 +29,7 @@
                         <input type="file" name="files[]" id="fileInput" multiple="multiple" onchange="previewImages()">
                     </div>
                     <div>
-                        <label>個数：</label><input type="text" style="padding: 5px;" placeholder="個数を入力してください" required="required" name="piece" v-model="piece"/>
+                        <label>個数：</label><input class="input-box-number" type="text" style="padding: 5px;" placeholder="個数を入力してください" required="required" name="piece" v-model="piece"/>
                         <p v-if="isKo" class="err">個数は数字4桁で入力してください</p>
                     </div>
                         
@@ -42,14 +42,14 @@
                         </select>
                     </div>
                     <div>
-                        <label>商品名：</label><input type="text" style="padding: 5px;" placeholder="商品名を入力してください" required="required">
+                        <label>商品名：</label><input class="input-box" type="text" style="padding: 5px;" placeholder="商品名を入力してください" required="required">
                     </div>
                     <div>
-                        <label>販売単価：</label><input type="text" style="padding: 5px;" placeholder="単価を入力してください" required="required" name="price" v-model="price"/>
-                    </div>
+                        <label>販売単価：</label><input type="text" class="input-box-number" style="padding: 5px;" placeholder="単価を入力してください" required="required" name="price" v-model="price"/>円
                         <p v-if="isTan" class="err">単価は数字6桁で入力してください</p>
+                    </div>
                     <div class="explain">
-                        <label>商品説明：</label><br><textarea style="padding: 5px;" placeholder="商品説明を入力してください" required="required" cols="100" rows="5" name="explain" maxlength="200"></textarea>
+                        <label>商品説明：</label><br><textarea class="input-box-explain" style="padding: 5px;" placeholder="商品説明を入力してください" required="required" cols="100" rows="5" name="explain" maxlength="200"></textarea>
                     </div>
                 </section>
                 <section class="foot">

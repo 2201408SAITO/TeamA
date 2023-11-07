@@ -50,6 +50,7 @@ main.wrapper{
     background-color: #fff4;
     padding: .8rem 1rem;
     user-select: none;
+    color: #162938;
 }
 
 .body{
@@ -94,6 +95,7 @@ thead th{
     top: 0;
     left: 0;
     background-color: #d5d1defe;
+    color: #162938;
 }
 
 tbody img{
