@@ -10,7 +10,7 @@ function previewImages() {
       const img = document.createElement('img');
       const space = document.createTextNode(' '); // 半角スペースのテキストノードを作成
       const deleteButton = document.createElement('button');
-      deleteButton.innerHTML = '削除';
+      deleteButton.innerHTML = '×';
       deleteButton.className = 'delete-button';
       deleteButton.addEventListener('click', function() {
           // 削除ボタンがクリックされたときの処理
@@ -25,6 +25,13 @@ function previewImages() {
       img.style.maxHeight = '100px';
       img.style.height='65px';
       img.style.width='65px';
+      deleteButton.style.height='25px';
+      deleteButton.style.width='25px';
+      deleteButton.style.background='red';
+      deleteButton.style.color='#fff';
+      deleteButton.style.border='solid red';
+      deleteButton.style.borderRadius='5px';
+
 
       reader.readAsDataURL(fileInput.files[i]);
 

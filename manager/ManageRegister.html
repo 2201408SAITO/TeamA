@@ -30,7 +30,7 @@
                         <input type="file" style="display:none;" name="files[]" id="fileInput" multiple="multiple" onchange="previewImages()">
                     </div>
                     <div>
-                        <label>個数：</label><input class="input-box-number" type="text" style="padding: 5px;" placeholder="個数を入力してください" required="required" name="piece" v-model="piece"/>
+                        <label>個数：</label><input class="input-box-number" type="text" style="padding: 5px;" placeholder="個数" required="required" name="piece" v-model="piece"/>個
                         <p v-if="isKo" class="err">個数は数字4桁で入力してください</p>
                     </div>
                         
@@ -46,7 +46,7 @@
                         <label>商品名：</label><input class="input-box" type="text" style="padding: 5px;" placeholder="商品名を入力してください" required="required">
                     </div>
                     <div>
-                        <label>販売単価：</label><input type="text" class="input-box-number" style="padding: 5px;" placeholder="単価を入力してください" required="required" name="price" v-model="price"/>円
+                        <label>販売単価：</label><input type="text" class="input-box-number" style="padding: 5px;" placeholder="単価" required="required" name="price" v-model="price"/>円
                         <p v-if="isTan" class="err">単価は数字6桁で入力してください</p>
                     </div>
                     <div class="explain">

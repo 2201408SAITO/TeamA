@@ -2,8 +2,8 @@ new Vue({
     el: '#app',
     data(){
         return{
-            piece: 1234,
-            price: 123456
+            piece: 0,
+            price: 0
         };
     },
     computed:{

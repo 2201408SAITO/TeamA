@@ -62,6 +62,7 @@ label{
 }
 
 .input-box,.input-box-number{
+    background-color: snow;
     border-radius: 5px;
     border:solid #162938;
     height: 30px;
@@ -129,6 +130,19 @@ label{
 
 .err{
     color: red;
+}
+
+.register{
+    font-size: 1.1em;
+    color: #fff;
+    border: 2px solid rgb(16, 16, 16);
+    background: #162938;
+    width: 5em;
+    height:3em;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100px;
+    margin: 0 100px;
 }
 
 @media (max-width=1000px){
