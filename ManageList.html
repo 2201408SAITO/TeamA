@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品一覧</title>
+    <link rel="stylesheet" href="css/List.css">
+</head>
+<body>
+
+    <header>
+        <img src="img/logo.png" class="logo" alt="" width="100" height="65">
+        <nav class="logout">
+            <a href="">ログアウト</a>
+        </nav>
+    </header>
+    <main class="wrapper">
+        <section class="head">
+            <h1>商品一覧</h1>
+        </section>
+        <section class="body">
+            <table><thead><tr><th width="8%">商品ID</th><th  width="20%">商品名</th><th  width="10%">単価</th><th width="26%">商品画像</th><th width="26%">商品説明</th><th  width="10%">動作</th></tr></thead>
+                <tbody>
+                    <tr><td class="center"  style="word-break: break-word">1</td><td style="word-break: break-word">チョコレートチョコレートチョコレートチョコレートチョコレートチョコレート</td><td style="word-break: break-word"><strong>300</strong></td><td  style="word-break: break-word"><img src="img/1.jpg" class="logo" alt="" width="65" height="65"><img src="img/1.jpg" class="logo" alt="" width="65" height="65"></td><td style="word-break: break-word">ffsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfdsfdsfdsfsdfdssdfsdfsdfsdf</td><td class="center"><form action="update.html" method="post"><input type="hidden" name="id" value="1"><button class="up" type ="submit">更新</button></form><form action="delete.html" method="post"><input type="hidden" name="id" value="1"><button onclick="return confirm('削除しますか？')" class="del" type ="submit">削除</button></form></td></tr>
+                    <tr><td class="center"  style="word-break: break-word">2</td><td style="word-break: break-word">ゲーム機</td><td style="word-break: break-word"><strong>10000000000000</strong></td><td  style="word-break: break-word">g2.jpg</td><td style="word-break: break-word">none</td><td class="center"><form action="update.html" method="post"><input type="hidden" name="id" value="2"><button class="up" type ="submit">更新</button></form><form action="delete.html" method="post"><input type="hidden" name="id" value="2"><button onclick="return confirm('削除しますか？')" class="del" type ="submit">削除</button></form></td></tr>
+                    <tr><td class="center"  style="word-break: break-word">3</td><td style="word-break: break-word">キャンディー</td><td style="word-break: break-word"><strong>200</strong></td><td  style="word-break: break-word">g3.jpg</td><td style="word-break: break-word">none</td><td class="center"><form action="update.html" method="post"><input type="hidden" name="id" value="3"><button class="up" type ="submit">更新</button></form><form action="delete.html" method="post"><input type="hidden" name="id" value="3"><button onclick="return confirm('削除しますか？')" class="del" type ="submit">削除</button></form></td></tr>
+                    <tr><td class="center"  style="word-break: break-word">4</td><td style="word-break: break-word">クッキー</td><td style="word-break: break-word"><strong>250</strong></td><td  style="word-break: break-word">g4.jpg</td><td style="word-break: break-word">none</td><td class="center"><form action="update.html" method="post"><input type="hidden" name="id" value="4"><button class="up" type ="submit">更新</button></form><form action="delete.html" method="post"><input type="hidden" name="id" value="4"><button onclick="return confirm('削除しますか？')" class="del" type ="submit">削除</button></form></td></tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="foot">
+            <form action="ManageRegister.html" method="post">
+                <button class="register" type="submit">登録</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

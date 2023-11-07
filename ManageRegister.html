@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+    <meta http-equiv="Cache-Control" content="no-cache">
+		<meta charset="UTF-8">
+		<title>商品登録画面</title>
+        <link rel="stylesheet" href="css/Register.css">
+        <script src="./script/Register.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	<body>
+        <header>
+            <img src="img/logo.png" class="logo" alt="" width="100" height="65">
+            <nav class="logout">
+                <a href="">ログアウト</a>
+            </nav>
+        </header>
+        <div class="wrapper" id="app">
+            <section class="head">
+                <h2>商品登録</h2>
+            </section>
+            <form action = "registerfinish.html" method = "post" enctype="multipart/form-data">
+                <section class="body">
+                    <div class="image">
+                        <label>画像：</label>
+                        <span id="imagePreviews" width=""></span>
+                        <input type="file" name="files[]" id="fileInput" multiple="multiple" onchange="previewImages()">
+                    </div>
+                    <div>
+                        <label>個数：</label><input type="text" style="padding: 5px;" placeholder="個数を入力してください" required="required" name="piece" v-model="piece"/>
+                    </div>
+                    <div>
+                    <label>カテゴリ：</label>
+                        <select>
+                          <option value="">選んでください</option>
+                          <option value="">1</option>
+                          <option value="">2</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>商品名：</label><input type="text" style="padding: 5px;" placeholder="商品名を入力してください" required="required">
+                    </div>
+                    <div>
+                        <label>販売単価：</label><input type="text" style="padding: 5px;" placeholder="単価を入力してください" required="required" name="price" v-model="price"/>
+                    </div>
+                    <div class="explain">
+                        <label>商品説明：</label><br><textarea style="padding: 5px;" placeholder="商品説明を入力してください" required="required" cols="100" rows="5" name="explain" maxlength="200"></textarea>
+                    </div>
+                    <p v-if="isTan" class="err">個数は数字4桁で入力してください</p>
+                    <p v-if="isKo" class="err">単価は数字6桁で入力してください</p>
+                </section>
+                <section class="foot">
+                    <button class="register" onclick="location.href='ManagerList.html'" type="submit">戻る</button>
+                    <button class="register" type="submit">登録</button>
+                </section>
+            </form>
+        </div>
+        <script src="./script/Err.js"></script>
+    </body>
+</html>
