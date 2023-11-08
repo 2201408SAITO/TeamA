@@ -2,7 +2,7 @@ new Vue({
     el: '#app',
     data(){
         return{
-            piece: 0,
+            piece: 1,
             price: 0
         };
     },
