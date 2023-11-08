@@ -19,15 +19,14 @@
         </header>
         <div class="wrapper" id="app">
             <section class="head">
-                <h2>商品登録</h2>
+                <h2>商品更新</h2>
             </section>
-            <form action = "ManageRegisterFinish.html" method = "post" enctype="multipart/form-data">
+            <form action = "updatefinish.html" method = "post" enctype="multipart/form-data">
                 <section class="body">
                     <div class="image">
                         <label>画像：</label>
-                        <span id="imagePreviews" width=""></span>
-                        <input type="button" id="loadFileXml" value="画像" class="imageButton" onclick="document.getElementById('fileInput').click();" />
-                        <input type="file" style="display:none;" name="files[]" id="fileInput" multiple="multiple" onchange="previewImages()">
+                        <img src="img/1.png" class="logo" alt="" width="65" height="65">
+                        <button>×</button>
                     </div>
                     <div>
                         <label>個数：</label><input class="input-box-number" type="text" style="padding: 5px;" placeholder="個数" required="required" name="piece" v-model="piece"/>個
@@ -38,19 +37,19 @@
                     <label>カテゴリ：</label>
                         <select>
                           <option value="">選んでください</option>
-                          <option value="">ゲーム機</option>
-                          <option value="">家具</option>
+                          <option value="">1</option>
+                          <option value="">2</option>
                         </select>
                     </div>
                     <div>
-                        <label>商品名：</label><input class="input-box" type="text" style="padding: 5px;" placeholder="商品名を入力してください" required="required">
+                        <label>商品名：</label><input class="input-box" type="text" style="padding: 5px;" placeholder="商品名を入力してください" value="チョコレート" required="required">
                     </div>
                     <div>
                         <label>販売単価：</label><input type="text" class="input-box-number" style="padding: 5px;" placeholder="単価" required="required" name="price" v-model="price"/>円
                         <p v-if="isTan" class="err">単価は数字6桁で入力してください</p>
                     </div>
                     <div class="explain">
-                        <label>商品説明：</label><br><textarea class="input-box-explain" style="padding: 5px;" placeholder="商品説明を入力してください" required="required" cols="100" rows="5" name="explain" maxlength="200"></textarea>
+                        <label>商品説明：</label><br><textarea class="input-box-explain" style="padding: 5px;" placeholder="商品説明を入力してください" required="required" cols="100" rows="5" name="explain" maxlength="200">none</textarea>
                     </div>
                 </section>
                 <section class="foot">
