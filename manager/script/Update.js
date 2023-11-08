@@ -3,8 +3,6 @@ function previewImages() {
     const fileInput = document.getElementById('fileInput');
     const imagePreviews = document.getElementById('imagePreviews');
    
-   
-  
     for (let i = 0; i < fileInput.files.length; i++) {
         const reader = new FileReader();
         const img = document.createElement('img');
@@ -16,10 +14,10 @@ function previewImages() {
             // 削除ボタンがクリックされたときの処理
             imagePreviews.removeChild(imageContainer);
         });
-       
         reader.onload = function (e) {
             img.src = e.target.result;
         };
+
        
         img.style.maxWidth = '100px';
         img.style.maxHeight = '100px';
