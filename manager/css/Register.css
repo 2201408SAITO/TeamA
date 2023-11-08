@@ -84,6 +84,14 @@ label{
     width: 30%;
 }
 
+.input-box-option{
+    border: 2px solid #162938;  
+    border-radius: 5px;           
+    background-color: snow;                      
+    font-size: 1em;          
+    line-height: 1.2;  
+}
+
 .imageButton{
     background-color: #162938;
     font-weight: bold;
