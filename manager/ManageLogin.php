@@ -50,7 +50,7 @@
                 $mpass = $row["password"];
                 if ($mpass === $pass) {
                     // ログイン成功時の処理（ManageList.htmlへ遷移）
-                    echo '<script>window.location.replace("ManageList.html");</script>';
+                    echo '<script>window.location.replace("ManageList.php");</script>';
                     exit;
                 } else { 
                     // パスワードが一致しない場合のエラーメッセージ
