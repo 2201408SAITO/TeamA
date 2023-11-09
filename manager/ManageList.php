@@ -29,15 +29,29 @@
                 foreach ($pdo->query('SELECT goods. * , category_name FROM goods INNER JOIN categories ON goods.category_id = categories.category_id') as $row) {
                     echo '<tr>';
                         $category=$row['category_name'];
-                        $goods_id=$row['goods_id'];
+                        $id=$row['goods_id'];
                         mkdir("./img/{$category}", 0777);
-                        mkdir("./img/{$category}/{$goods_id}", 0777);
+                        mkdir("./img/{$category}/{$id}", 0777);
                         echo '<td class="center"  style="word-break: break-word">'.$row['goods_id'].'</td>';
                         echo '<td style="word-break: break-word">'.$row['goods_name'].'</td>';
                         echo '<td style="word-break: break-word">'.$row['category_name'].'</td>';
                         echo '<td style="word-break: break-word"><strong>'.$row['price'].'</strong></td>';
                         echo '<td class="center" style="word-break: break-word">'.$row['count'].'</td>';
-                        echo '<td style="word-break: break-word"><img src="img/switch.jpg" class="logo" alt="" width="65" height="65"></td>';
+                        echo '<td style="word-break: break-word">';
+                        $imageDirectory = 'img/' . $category . '/'.$id.'/';
+                   
+                        // 画像ファイルを取得
+                        $images = glob($imageDirectory . '*.{jpg,jpeg,png,gif}', GLOB_BRACE);
+                   
+                        if (!empty($images)) {
+                            foreach ($images as $image) {
+                                $fileName = basename($image);
+                                echo '<img src="' . $image . '" class="logo" alt="' . $fileName . '" width="65" height="65">';
+                            }
+                        } else {
+                            echo 'No images';
+                        }
+                        echo '</td>';
                         echo '<td style="word-break: break-word">'.$row['exp'].'</td>';
                         echo '<td class="center">';
                             echo '<form action="ManageUpdate.html" method="post">';
