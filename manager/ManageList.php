@@ -30,8 +30,8 @@
                     echo '<tr>';
                         $category=$row['category_name'];
                         $goods_id=$row['goods_id'];
-                        mkdir("./img/${category}", 0777);
-                        mkdir("./img/${category}/${goods_id}", 0777);
+                        mkdir("./img/{$category}", 0777);
+                        mkdir("./img/{$category}/{$goods_id}", 0777);
                         echo '<td class="center"  style="word-break: break-word">'.$row['goods_id'].'</td>';
                         echo '<td style="word-break: break-word">'.$row['goods_name'].'</td>';
                         echo '<td style="word-break: break-word">'.$row['category_name'].'</td>';
