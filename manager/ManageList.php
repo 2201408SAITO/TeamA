@@ -29,7 +29,7 @@
                     echo '<tr>';
                         echo '<td class="center"  style="word-break: break-word">'.$row['goods_id'].'</td>';
                         echo '<td style="word-break: break-word">'.$row['goods_name'].'</td>';
-                        echo '<td style="word-break: break-word">'$row['category_name'].'</td>';
+                        echo '<td style="word-break: break-word">'.$row['category_name'].'</td>';
                         echo '<td style="word-break: break-word"><strong>'.$row['price'].'</strong></td>';
                         echo '<td class="center" style="word-break: break-word">'.$row['count'].'</td>';
                         echo '<td style="word-break: break-word"><img src="img/switch.jpg" class="logo" alt="" width="65" height="65"></td>';
