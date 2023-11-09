@@ -28,6 +28,7 @@
                 echo '<tbody>';
                 foreach ($pdo->query('SELECT goods. * , category_name FROM goods INNER JOIN categories ON goods.category_id = categories.category_id') as $row) {
                     echo '<tr>';
+                        mkdir("./img/${goods_id}", 0777);
                         echo '<td class="center"  style="word-break: break-word">'.$row['goods_id'].'</td>';
                         echo '<td style="word-break: break-word">'.$row['goods_name'].'</td>';
                         echo '<td style="word-break: break-word">'.$row['category_name'].'</td>';
