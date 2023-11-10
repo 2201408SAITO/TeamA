@@ -21,7 +21,7 @@
                 require 'db-connect.php';
                 $pdo = new PDO($connect, USER, PASS);
                 $sql=$pdo->prepare('insert into goods(category_id,goods_name,price,count,exp) value (?,?,?,?,?)');
-                $sql->execute([$_POST['category'],$_POST['name'],$_POST['price'],$_POST['count'],$_POST['exp']]);
+                $sql->execute([$_POST['category'],$_POST['name'],$_POST['price'],$_POST['piece'],$_POST['explain']]);
                     echo '<label>追加に成功しました<label>';
                 ?>
         </section>
