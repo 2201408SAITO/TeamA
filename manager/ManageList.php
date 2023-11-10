@@ -75,7 +75,7 @@
             ?>
         </section>
         <section class="foot">
-            <form action="ManageRegister.html" method="post">
+            <form action="ManageRegister.php" method="post">
                 <button class="register" type="submit">登録</button>
             </form>
         </section>
