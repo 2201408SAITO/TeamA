@@ -14,14 +14,14 @@
         <header>
             <img src="img/logo.png" class="logo" alt="" width="100" height="65">
             <nav class="logout">
-                <a href="ManageLogin.html">ログアウト</a>
+                <a href="ManageLogin.php">ログアウト</a>
             </nav>
         </header>
         <div class="wrapper" id="app">
             <section class="head">
                 <h2>商品登録</h2>
             </section>
-            <form action = "ManageRegisterFinish.html" method = "post" enctype="multipart/form-data">
+            <form action = "ManageRegisterFinish.php" method = "post" enctype="multipart/form-data">
                 <section class="body">
                     <div class="image">
                         <label>画像：</label>
@@ -30,31 +30,39 @@
                         <input type="file" style="display:none;" name="files[]" id="fileInput" multiple="multiple" onchange="previewImages()">
                     </div>
                     <div>
-                        <label>個数：</label><input class="input-box-number" type="text" style="padding: 5px;" placeholder="個数" required="required" name="piece" v-model="piece"/>個
+                        <label>個数：</label>
+                        <input class="input-box-number" type="text" style="padding: 5px;" placeholder="個数" required="required" name="piece" v-model="piece"/>個
                         <p v-if="isKo" class="err">個数は数字4桁で入力してください</p>
                     </div>
                         
                     <div>
                     <label>カテゴリ：</label>
-                        <select class="input-box-option" style="padding: 5px;" required="required">
+                        <select name="category" class="input-box-option" style="padding: 5px;" required="required">
                           <option value="">選んでください</option>
-                          <option value="">ゲーム機</option>
-                          <option value="">家具</option>
+                          <option value="1">家具</option>
+                          <option value="2">ゲーム機</option>
+                          <option value="3">家電</option>
+                          <option value="4">靴</option>
+                          <option value="5">おもちゃ</option>
                         </select>
                     </div>
                     <div>
-                        <label>商品名：</label><input class="input-box" type="text" style="padding: 5px;" placeholder="商品名を入力してください" required="required">
+                        <label>商品名：</label>
+                        <input name="name" class="input-box" type="text" style="padding: 5px;" placeholder="商品名を入力してください" required="required">
                     </div>
                     <div>
-                        <label>販売単価：</label><input type="text" class="input-box-number" style="padding: 5px;" placeholder="単価" required="required" name="price" v-model="price"/>円
+                        <label>販売単価：</label>
+                        <input type="text" class="input-box-number" style="padding: 5px;" placeholder="単価" required="required" name="price" v-model="price"/>円
                         <p v-if="isTan" class="err">単価は数字6桁で入力してください</p>
                     </div>
                     <div class="explain">
-                        <label>商品説明：</label><br><textarea class="input-box-explain" style="padding: 5px;" placeholder="商品説明を入力してください" required="required" cols="100" rows="5" name="explain" maxlength="200"></textarea>
+                        <label>商品説明：</label>
+                        <br>
+                        <textarea name="explain" class="input-box-explain" style="padding: 5px;" placeholder="商品説明を入力してください" required="required" cols="100" rows="5" name="explain" maxlength="200"></textarea>
                     </div>
                 </section>
                 <section class="foot">
-                    <button class="register" onclick="location.href='ManageList.html'" type="submit">戻る</button>
+                    <button class="register" onclick="location.href='ManageList.php'" type="submit">戻る</button>
                     <button class="register" type="submit">登録</button>
                 </section>
             </form>
