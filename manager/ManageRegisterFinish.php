@@ -19,6 +19,33 @@
         <section class="body">
         <?php
                 require 'db-connect.php';
+                $category=$_POST['category'];
+                $name=$_POST['name'];
+                $path="./img/{$category}";
+                $path1="./img/{$category}/{$name}";
+                if(!file_exists($path)){
+                    mkdir("./img/{$category}", 0777);
+                }
+                if(!file_exists($path1)){
+                    mkdir("./img/{$category}/{$name}", 0777);
+                }
+                $target_dir = "uploads/";
+                $target_file = $target_dir . basename($_FILES["files[]"]["name"]);
+                $uploadOk = 1;
+                $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+                if (file_exists($target_file)) {
+                    $uploadOk = 0;
+                }
+
+                if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
+                    $uploadOk = 0;
+                }
+
+                if ($uploadOk == 1) {
+                    move_uploaded_file($_FILES["files[]"]["tmp_name"], $target_file);
+                }
+
+                
                 $pdo = new PDO($connect, USER, PASS);
                 $sql=$pdo->prepare('insert into goods(category_id,goods_name,price,count,exp) value (?,?,?,?,?)');
                 $sql->execute([$_POST['category'],$_POST['name'],$_POST['price'],$_POST['piece'],$_POST['explain']]);

@@ -29,7 +29,7 @@
                 foreach ($pdo->query('SELECT goods. * , category_name FROM goods INNER JOIN categories ON goods.category_id = categories.category_id') as $row) {
                     echo '<tr>';
                         $category=$row['category_name'];
-                        $id=$row['goods_id'];
+                        $id=$row['goods_name'];
                         $path="./img/{$category}";
                         $path1="./img/{$category}/{$id}";
                         if(!file_exists($path)){
