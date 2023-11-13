@@ -61,10 +61,10 @@
                     if ($uploadOk == 1) {
                         if (move_uploaded_file($currentFile, $currentTarget)) {
                             // ファイルのアップロードが成功した場合の処理
-                          
+                            echo '<label>追加に成功しました</label>';
                         } else {
                             // ファイルのアップロードが失敗した場合の処理
-                           
+                           echo '<label>追加に失敗しました</label>'
                         }
                     }
                 }
@@ -72,7 +72,7 @@
                 $pdo = new PDO($connect, USER, PASS);
                 $sql=$pdo->prepare('insert into goods(category_id,goods_name,price,count,exp) value (?,?,?,?,?)');
                 $sql->execute([$_POST['category'],$_POST['name'],$_POST['price'],$_POST['piece'],$_POST['explain']]);
-                echo '<label>追加に成功しました</label>';
+                
                 ?>
         </section>
         <section class="foot">
