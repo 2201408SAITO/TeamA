@@ -30,7 +30,7 @@
             $images = glob($imageDirectory . '*.{jpg,jpeg,png,gif}', GLOB_BRACE);
             if(file_exists($path1)){
                 foreach ($images as $image) {
-                   unlink($images);
+                   unlink($image);
                 }
                 rmdir($path1);
             }
