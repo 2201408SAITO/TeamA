@@ -65,7 +65,9 @@
                                 echo '<button class="up" type ="submit">更新</button>';
                             echo '</form>';
                             echo '<form action="ManageDeleteFinish.html" method="post">';
-                                echo '<input type="hidden" name="id" value="'.$row['goods_id'].'">';
+                                echo '<input type="hidden" name="delcategory" value="'.$row['category_name'].'">';
+                                echo '<input type="hidden" name="delname" value="'.$row['goods_name'].'">';
+                                echo '<input type="hidden" name="delid" value="'.$row['goods_id'].'">';
                                 echo '<button onclick="'.$delete.'" class="del" type ="submit">削除</button>';
                             echo '</form>';
                     echo '</td></tr>';
