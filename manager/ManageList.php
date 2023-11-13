@@ -60,11 +60,11 @@
                         echo '</td>';
                         echo '<td style="word-break: break-word">'.$row['exp'].'</td>';
                         echo '<td class="center">';
-                            echo '<form action="ManageUpdate.html" method="post">';
+                            echo '<form action="ManageUpdate.php" method="post">';
                                 echo '<input type="hidden" name="id" value="'.$row['goods_id'].'">';
                                 echo '<button class="up" type ="submit">更新</button>';
                             echo '</form>';
-                            echo '<form action="ManageDeleteFinish.html" method="post">';
+                            echo '<form action="ManageDeleteFinish.php" method="post">';
                                 echo '<input type="hidden" name="delcategory" value="'.$row['category_name'].'">';
                                 echo '<input type="hidden" name="delname" value="'.$row['goods_name'].'">';
                                 echo '<input type="hidden" name="delid" value="'.$row['goods_id'].'">';
