@@ -64,7 +64,7 @@
                             echo '<label>追加に成功しました</label>';
                         } else {
                             // ファイルのアップロードが失敗した場合の処理
-                           echo '<label>追加に失敗しました</label>'
+                           echo '<label>追加に失敗しました</label>';
                         }
                     }
                 }
