@@ -25,7 +25,7 @@
 <div class="aaa">
     <div class="wrapper">
         <div class="box login">
-            <h2>Lユーザー情報</h2>
+            <h2>ユーザー情報</h2>
             <form method="POST" action="#">
                 <div class="input-box">
                     <input type="text" name="name" required>
