@@ -28,23 +28,27 @@
             <h2>ユーザー情報</h2>
             <form method="POST" action="#">
                 <div class="input-box">
-                    <input type="text" name="name" required>
+                    <input type="text" name="name" maxlength="30" required>
                     <label>名前</label>
                 </div>
                 <div class="input-box">
-                    <input type="text" name="postcode" required>
+                    <input type="text" name="postcode" maxlength="7" required>
                     <label>郵便番号</label>
                 </div>
                 <div class="input-box">
-                    <input type="text" name="address" required>
+                    <input type="text" name="address" maxlength="100" required>
                     <label>住所</label>
                 </div>
                 <div class="input-box">
-                    <input type="text" name="mail" required>
+                    <input type="text" name="phonenNumber" maxlength="12" required>
+                    <label>電話番号</label>
+                </div>
+                <div class="input-box">
+                    <input type="text" name="mail" maxlength="50" required>
                     <label>メールアドレス</label>
                 </div>
                 <div class="input-box">
-                    <input type="password" name="password" required>
+                    <input type="password" name="password" maxlength="20" required>
                     <label>パスワード</label>
                 </div>
                 <div class="error-message" id="error-msg"></div>
