@@ -62,7 +62,7 @@
                         move_uploaded_file($currentFile, $currentTarget);
                     }
                 }
-                if ($uploadOk == 1) {
+                if($uploadOk == 1) {
                     echo '<label>追加に成功しました</label>';
                 }else {
                     echo '<label>追加に失敗しました</label>';
