@@ -16,7 +16,7 @@
                 <a href="ManageLogin.php">ログアウト</a>
             </nav>
         </header>
-        <div class="wrapper" id="app">
+        <div class="wrapper">
             <section class="head">
                 <h2>商品登録</h2>
             </section>
@@ -30,8 +30,7 @@
                     </div>
                     <div>
                         <label>個数：</label>
-                        <input class="input-box-number" type="text" style="padding: 5px;" placeholder="個数" required="required" name="piece" v-model="piece"/>個
-                        <p v-if="isKo" class="err">個数は数字4桁で入力してください</p>
+                        <input class="input-box-number" type="text" style="padding: 5px;" placeholder="個数" required="required" name="piece" maxlength="4" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g,'$1');"/>個
                     </div>
                         
                     <div>
@@ -51,8 +50,7 @@
                     </div>
                     <div>
                         <label>販売単価：</label>
-                        <input type="text" class="input-box-number" style="padding: 5px;" placeholder="単価" required="required" name="price" v-model="price"/>円
-                        <p v-if="isTan" class="err">単価は数字6桁で入力してください</p>
+                        <input type="text" class="input-box-number" style="padding: 5px;" placeholder="単価" required="required" name="price" maxlength="6" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g,'$1');"/>円
                     </div>
                     <div class="explain">
                         <label>商品説明：</label>
@@ -66,6 +64,5 @@
                 </section>
             </form>
         </div>
-        <script src="./script/RegisterErr.js"></script>
     </body>
 </html>
