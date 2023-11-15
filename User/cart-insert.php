@@ -1,6 +1,6 @@
 <?php session_start(); ?>
 <?php require 'header.php'; ?>
-<?php require 'menu.php'; ?>
+<?php require 'menu_noswip.php'; ?>
 <?php
 $id=$_POST['id'];
 if(!isset($_SESSION['product'])){

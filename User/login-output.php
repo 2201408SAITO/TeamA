@@ -2,24 +2,26 @@
 <?php require 'header.php';?>
 <?php require 'menu.php';?>
 <?php require 'db-connect.php';?>
+
 <?php
-unset($_SESSION['customer']);
+unset($_SESSION['users']);
 $pdo = new PDO($connect, USER, PASS);
-$sql=$pdo->prepare('select * from customer where login=?');
-$sql->execute([$_POST['login']]);
+$sql=$pdo->prepare('select * from users where mail=?');
+$sql->execute([$_POST['mail']]);
 
 foreach($sql as $row){
-    if(password_verify($_POST['password'],$row['password'])== true){
-    $_SESSION['customer']=[
-        'id'=>$row['id'],'name'=>$row['name'],
-        'address'=>$row['address'],'login'=>$row['login'],
+    if($_POST['password'] == $row['password']){
+    $_SESSION['users']=[
+        'id'=>$row['user_id'],'name'=>$row['user_name'],
+        'address'=>$row['address'],'mail'=>$row['mail'],
         'password'=>$row['password']];
     }
 }
-if(isset($_SESSION['customer'])){
-    echo 'いらっしゃいませ、',$_SESSION['customer']['name'],'さん。';
+if(isset($_SESSION['users'])){
+    echo '<div class="title is-4"><div class="has-text-weight-bold is-italic is-underlined has-text-right">ユーザー:',$_SESSION['users']['name'],'</div></div>';
 }else {
     echo 'ログイン名またはパスワードが違います。';
 }
 ?>
+
 <?php require 'footer.php'; ?>
