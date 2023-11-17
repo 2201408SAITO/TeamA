@@ -5,19 +5,18 @@
 <form action="index.php" method="post">
     <table>
         <?php
-        $categoryMapping = [
-            1 => 'テレビ',
-            2 => 'ゲーム',
+          $categoryMapping = [
+            1 => '家具',
+            2 => 'ゲーム機',
             3 => '家電',
             4 => '靴',
             5 => 'おもちゃ',
             6 => 'スマートフォン',
             7 => '服',
-            8 => '靴',
-            9 => '本',
-            10 => '家具',
+            8 => '本',
+            9 => '家具',
+            
         ];
-
         if(isset($_POST['category']) && !empty($_POST['category'])) {
             // カテゴリーが選択された場合
             $sql = $pdo->prepare('select goods_name, price, goods_id from goods where category_id = ? and goods_name like ?');
@@ -35,7 +34,7 @@
             $key = $row['category_id'];
             $category = $categoryMapping[$key];
             $name = $row['goods_name'];
-            $path1 = "../manager/img/'.$category.'/'.$name.'/";
+            $path1 = "../manager/img/{$category}/{$name}/";
             $images = glob($path1 . '*.{jpg,jpeg,png,gif}', GLOB_BRACE);
             $firstImage = $images[0];
             echo '<div class="tile is-parent is-vertical">';
