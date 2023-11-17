@@ -31,6 +31,7 @@
         echo '<div class="tile is-ancestor">';
         foreach ($sql as $row) {
             $key = $row['category_id'];
+            echo '<input type="hidden" name="category" value="'.$row['category_id'].'">';
             $category = $categoryMapping[$key];
             $name = $row['goods_name'];
             $path1 = "../manager/img/{$category}/{$name}/";
