@@ -9,11 +9,21 @@
     <title>登録完了画面</title>
 </head>
 <body>
+    
 <?php
-    if($sql->fetchAll()){
+    $sql=$pdo->prepare('select * from users where mail = ?');
+    $sql->execute([$_POST['mail']]);
+
+    if(empty($sql->fetchAll())){
+
+        $sql=$pdo->prepare('insert into users values(null, ?, ?, ?, ?, ?, ?, null, null, 0)');
+        $sql->execute([$_POST['password'], $_POST['name'], $_POST['address'], $_POST['mail'], $_POST['phoneNumber'], $_POST['postcode']]);
+        
+        echo 'ご登録ありがとうございます';
+    }else{
+        echo 'このメールアドレスは既に登録されています';
     }
-    $sql=$pdo->prepare('insert into users values(null, ?, ?, ?, ?, ?, ?, null, null, 0)');
-    $sql->execute([$_POST['password'],$_POST['name'],$_POST['address'],$_POST['mail'],$_POST['postcode'],$_POST['password']]);
+
 ?>
 </body>
 </html>

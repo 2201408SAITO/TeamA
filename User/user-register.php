@@ -44,7 +44,7 @@
                     <label>住所</label>
                 </div>
                 <div class="input-box">
-                    <input type="text" name="phonenNumber" maxlength="12" 
+                    <input type="text" name="phoneNumber" maxlength="12" 
                     oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required>
                     <label>電話番号</label>
                 </div>
