@@ -14,16 +14,15 @@
             6 => 'スマートフォン',
             7 => '服',
             8 => '本',
-            9 => '家具',
             
         ];
         if(isset($_POST['category']) && !empty($_POST['category'])) {
             // カテゴリーが選択された場合
-            $sql = $pdo->prepare('select goods_name, price, goods_id from goods where category_id = ? and goods_name like ?');
+            $sql = $pdo->prepare('select goods_name, price, goods_id,category_id from goods where category_id = ? and goods_name like ?');
             $sql->execute([$_POST['category'], '%' . $_POST['keyword'] . '%']);
         } elseif(isset($_POST['keyword'])) {
             // カテゴリーが選択されていないがキーワードがある場合
-            $sql = $pdo->prepare('select goods_name, price, goods_id from goods where goods_name like ?');
+            $sql = $pdo->prepare('select goods_name, price, goods_id,category_id from goods where goods_name like ?');
             $sql->execute(['%'.$_POST['keyword'].'%']);
         } else {
             // カテゴリーもキーワードもない場合

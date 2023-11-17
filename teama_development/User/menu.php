@@ -6,7 +6,7 @@
     <div class="select is-normal">
     <select name="category">
     <option value="">カテゴリー</option>
-        <option value="1">テレビ</option>
+        <option value="1">家具</option>
         <option value="2">ゲーム</option>
         <option value="3">家電</option>
         <option value="4">靴</option>
@@ -14,7 +14,7 @@
         <option value="6">スマートフォン</option>
         <option value="7">服</option>
         <option value="8">本</option>
-        <option value="9">家具</option>
+   
     </select>
     </div>
     <div class="control">
