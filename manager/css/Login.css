@@ -41,6 +41,7 @@ header{
     font-size: 2em;
     text-align: center;
     color: #162938;
+    user-select: none;
 }
 
 .input-box{
@@ -60,6 +61,7 @@ header{
     font-weight: 500;
     pointer-events: none;
     transition: .5s;
+    user-select: none;
 }
 
 .input-box input:focus~label,
