@@ -26,7 +26,7 @@
                         <label>画像：</label>
                         <span id="imagePreviews" width=""></span>
                         <input type="button" id="loadFileXml" value="画像" class="imageButton" onclick="document.getElementById('fileInput').click();" />
-                        <input type="file" style="display:none;" name="files[]" id="fileInput" required="required" multiple="multiple" onchange="previewImages()">
+                        <input type="file" style="display:none;" name="files[]" id="fileInput" multiple="multiple" onchange="previewImages()">
                     </div>
                     <div>
                         <label>個数：</label>
@@ -36,12 +36,22 @@
                     <div>
                     <label>カテゴリ：</label>
                         <select name="category" class="input-box-option" style="padding: 5px;" required="required">
-                          <option value="">選んでください</option>
-                          <option value="1">家具</option>
-                          <option value="2">ゲーム機</option>
-                          <option value="3">家電</option>
-                          <option value="4">靴</option>
-                          <option value="5">おもちゃ</option>
+                          <option selected value="">選んでください</option>
+                          <?php
+                          $cate =[
+                            1 => '家具',
+                            2 => 'ゲーム機',
+                            3 => '家電',
+                            4 => '靴',
+                            5 => 'おもちゃ',
+                            6 => 'スマートフォン',
+                            7 => '服',
+                            8 => '本'
+                            ];
+                        foreach($cate as $CateId => $CateName){
+                            echo  '<option value="'.$CateId.'">'.$CateName.'</option>';
+                        }
+                          ?>
                         </select>
                     </div>
                     <div>

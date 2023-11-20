@@ -21,11 +21,14 @@
         <?php
                 require 'db-connect.php';
                 $categories = array(
-                    '1' => '家具',
-                    '2' => 'ゲーム機',
-                    '3' => '家電',
-                    '4' => '靴',
-                    '5' => 'おもちゃ'
+                    1 => '家具',
+                    2 => 'ゲーム機',
+                    3 => '家電',
+                    4 => '靴',
+                    5 => 'おもちゃ',
+                    6 => 'スマートフォン',
+                    7 => '服',
+                    8 => '本'
                 );
                 $key=$_POST['category'];
                 $category=$categories[$key];
@@ -62,14 +65,13 @@
                         move_uploaded_file($currentFile, $currentTarget);
                     }
                 }
-                if($uploadOk == 1) {
-                    echo '<label>追加に成功しました</label>';
-                }else {
-                    echo '<label>追加に失敗しました</label>';
+                if($uploadOk == 0){
+                    echo '<label>写真なしで</label>';
                 }
+                echo '<label>追加に成功しました</label>';
                 $pdo = new PDO($connect, USER, PASS);
-                $sql=$pdo->prepare('insert into goods(category_id,goods_name,price,count,exp) value (?,?,?,?,?)');
-                $sql->execute([$_POST['category'],$_POST['name'],$_POST['price'],$_POST['piece'],$_POST['explain']]);
+                $sql=$pdo->prepare('insert into goods(category_id,goods_name,price,register_date,count,exp) value (?,?,?,?,?,?)');
+                $sql->execute([$_POST['category'],$_POST['name'],$_POST['price'],date("Y/m/d",time()),$_POST['piece'],$_POST['explain']]);
                 
                 ?>
         </section>
