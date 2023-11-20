@@ -39,6 +39,7 @@ header{
 label{
     font-size: 1.2em;
     font-weight: 500;
+    user-select: none;
 }
 
 
@@ -49,6 +50,7 @@ label{
     background-color: #fff4;
     padding: .8rem 1rem;
     user-select: none;
+    color: #162938
 }
 
 .body{

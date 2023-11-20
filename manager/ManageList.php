@@ -6,11 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>商品一覧</title>
     <link rel="stylesheet" href="css/List.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js" type="text/javascript"></script>
+
 </head>
 <body>
 
     <header>
-        <img src="img/logo.png" class="logo" alt="" width="100" height="65">
+    <img style="user-select: none;" src="img/logo.png" class="logo" alt="" width="100" height="65">
         <nav class="logout">
             <a href="ManageLogin.php">ログアウト</a>
         </nav>
@@ -24,7 +28,7 @@
             require 'db-connect.php';
             $pdo = new PDO($connect, USER, PASS);
             $delete = "return confirm('削除しますか？')";
-            echo '<table><thead><tr><th width="8%">商品ID</th><th  width="18%">商品名</th><th  width="10%">カテゴリ</th><th  width="6%">単価</th><th  width="6%">在庫</th><th width="20%">商品画像</th><th width="20%">商品説明</th><th  width="10%">動作</th></tr></thead>';
+            echo '<table><thead><tr><th width="8%">商品ID</th><th  width="18%">商品名</th><th  width="10%">カテゴリ</th><th  width="7%">単価</th><th  width="5%">在庫</th><th width="20%">商品画像</th><th width="20%">商品説明</th><th  width="10%">動作</th></tr></thead>';
                 echo '<tbody>';
                 foreach ($pdo->query('SELECT goods. * , category_name FROM goods INNER JOIN categories ON goods.category_id = categories.category_id') as $row) {
                     echo '<tr>';
@@ -52,7 +56,7 @@
                         if (!empty($images)) {
                             foreach ($images as $image) {
                                 $fileName = basename($image);
-                                echo '<img src="' . $image . '" class="logo" alt="' . $fileName . '" width="65" height="65">';
+                                echo '<a style="cursor:zoom-in;" href="' . $image . '" data-lightbox="group"><img src="' . $image . '" alt="' . $fileName . '" width="65" height="65"></a>';
                             }
                         } else {
                             echo 'No images';
