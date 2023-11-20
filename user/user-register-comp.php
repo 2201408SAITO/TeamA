@@ -9,14 +9,7 @@
     <link rel="stylesheet" href="css/comp.css">
     <title>登録完了画面</title>
 
-    <style>
-        .aaa{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-    </style>
+
 </head>
 <body>
 <?php
