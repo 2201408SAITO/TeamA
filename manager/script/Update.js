@@ -1,8 +1,9 @@
-
 function previewImages() {
     const fileInput = document.getElementById('fileInput');
     const imagePreviews = document.getElementById('imagePreviews');
-   
+    console.log('fileInput:', fileInput);
+    console.log('fileInput.files:', fileInput.files);
+    
     for (let i = 0; i < fileInput.files.length; i++) {
         const reader = new FileReader();
         const img = document.createElement('img');
@@ -23,6 +24,8 @@ function previewImages() {
         img.style.maxHeight = '100px';
         img.style.height='65px';
         img.style.width='65px';
+        img.style.border= 'solid #162938';
+        img.style.borderRadius= '10px';
         deleteButton.style.height='25px';
         deleteButton.style.width='25px';
         deleteButton.style.background='red';
