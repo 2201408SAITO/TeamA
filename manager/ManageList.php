@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>商品一覧</title>
     <link rel="stylesheet" href="css/List.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js" type="text/javascript"></script>
+
 </head>
 <body>
 
@@ -52,7 +56,7 @@
                         if (!empty($images)) {
                             foreach ($images as $image) {
                                 $fileName = basename($image);
-                                echo '<img src="' . $image . '" class="logo" alt="' . $fileName . '" width="65" height="65">';
+                                echo '<a style="cursor:zoom-in;" href="' . $image . '" data-lightbox="group"><img src="' . $image . '" alt="' . $fileName . '" width="65" height="65"></a>';
                             }
                         } else {
                             echo 'No images';
