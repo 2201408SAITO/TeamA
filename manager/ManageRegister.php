@@ -26,8 +26,7 @@
                         <label>画像：</label>
                         <span id="imagePreviews" width=""></span>
                         <input type="button" id="loadFileXml" value="画像" class="imageButton" onclick="document.getElementById('fileInput').click();" />
-                        <input type="file" style="display:none;" name="files[]" id="fileInput" required multiple="multiple" onchange="previewImages()">
-                        <p style="color: red;">商品登録には写真(jpg, png, jpeg, gif)追加が必要です！</p>
+                        <input type="file" style="display:none;" name="files[]" id="fileInput" multiple="multiple" onchange="previewImages()">
                     </div>
                     <div>
                         <label>個数：</label>
