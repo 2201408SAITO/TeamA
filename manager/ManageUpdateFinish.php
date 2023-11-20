@@ -31,21 +31,39 @@
                     8 => '本'
                 );
                 $key=$_POST['category'];
+                $Okey=$_POST['OldCategory'];
                 $category=$categories[$key];
+                $Ocategory=$categories[$Okey];
                 $name=$_POST['name'];
+                $Oname=$_POST['OldName'];
+                $OldPath="./img/{$Ocategory}";
+                $OldPath1="./img/{$Ocategory}/{$Oname}";
                 $path="./img/{$category}";
                 $path1="./img/{$category}/{$name}";
-                if(!file_exists($path)){
-                    mkdir("./img/{$category}", 0777);
-                }
-                if(!file_exists($path1)){
-                    mkdir("./img/{$category}/{$name}", 0777);
-                }
+                $imageDirectory = 'img/' . $category . '/'.$name.'/';
+                $OldimageDirectory = 'img/' . $Ocategory . '/'.$Oname.'/';
+                $images = glob($imageDirectory . '*.{jpg,jpeg,png,gif}', GLOB_BRACE);
+                $Oimages = glob($OldimageDirectory . '*.{jpg,jpeg,png,gif}', GLOB_BRACE);
+                    if(file_exists($OldPath1)){
+                        foreach ($Oimages as $Oimage) {
+                            unlink($Oimage);
+                        }
+                        rmdir($OldPath1);
+                    }else{
+                        rmdir($OldPath1);
+                    }
+                    
+                    if(!file_exists($path)){
+                        mkdir("./img/{$category}", 0777);
+                    }
+                    if(!file_exists($path1)){
+                        mkdir("./img/{$category}/{$name}", 0777);
+                    }
                 $target_dir = $path1."/";
 
                 // ファイルが複数アップロードされた場合の処理
                 $numFiles = count($_FILES['files']['name']);
-
+                
                 for ($i = 0; $i < $numFiles; $i++) {
                     $currentFile = $_FILES['files']['tmp_name'][$i];
                     $currentTarget = $target_dir . basename($_FILES['files']['name'][$i]);
@@ -70,8 +88,8 @@
                 }
                 echo '<label>追加に成功しました</label>';
                 $pdo = new PDO($connect, USER, PASS);
-                $sql=$pdo->prepare('insert into goods(category_id,goods_name,price,register_date,count,exp) value (?,?,?,?,?,?)');
-                $sql->execute([$_POST['category'],$_POST['name'],$_POST['price'],date("Y/m/d",time()),$_POST['piece'],$_POST['explain']]);
+                $sql=$pdo->prepare('update goods set category_id = ?,goods_name = ?,price = ?,updated_date=?,count=?,exp =? where goods_id=?');
+                $sql->execute([$_POST['category'],$_POST['name'],$_POST['price'],date("Y/m/d",time()),$_POST['piece'],$_POST['explain'],$_POST['id']]);
                 
                 ?>
         </section>

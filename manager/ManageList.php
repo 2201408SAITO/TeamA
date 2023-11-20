@@ -24,7 +24,7 @@
             require 'db-connect.php';
             $pdo = new PDO($connect, USER, PASS);
             $delete = "return confirm('削除しますか？')";
-            echo '<table><thead><tr><th width="8%">商品ID</th><th  width="18%">商品名</th><th  width="10%">カテゴリ</th><th  width="6%">単価</th><th  width="6%">在庫</th><th width="20%">商品画像</th><th width="20%">商品説明</th><th  width="10%">動作</th></tr></thead>';
+            echo '<table><thead><tr><th width="8%">商品ID</th><th  width="18%">商品名</th><th  width="10%">カテゴリ</th><th  width="7%">単価</th><th  width="5%">在庫</th><th width="20%">商品画像</th><th width="20%">商品説明</th><th  width="10%">動作</th></tr></thead>';
                 echo '<tbody>';
                 foreach ($pdo->query('SELECT goods. * , category_name FROM goods INNER JOIN categories ON goods.category_id = categories.category_id') as $row) {
                     echo '<tr>';
