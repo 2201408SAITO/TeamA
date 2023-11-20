@@ -19,22 +19,24 @@
         <section class="body">
         <?php
             require 'db-connect.php';
-            $pdo=new PDO($connect, USER, PASS);
-            $sql=$pdo->prepare("delete from goods where goods_id=?");
-            $sql->execute([$_POST['delid']]);
-            echo '<p style="color:red;">商品削除が完了しました。</p>';
-            $category=$_POST['delcategory'];
-            $id=$_POST['delname'];
-            $path1="./img/{$category}/{$id}";
-            $imageDirectory = 'img/' . $category . '/'.$id.'/';
-            $images = glob($imageDirectory . '*.{jpg,jpeg,png,gif}', GLOB_BRACE);
-            if(file_exists($path1)){
-                foreach ($images as $image) {
-                   unlink($image);
+            try{
+                $pdo=new PDO($connect, USER, PASS);
+                $sql=$pdo->prepare("delete from goods where goods_id=?");
+                $sql->execute([$_POST['delid']]);
+                echo '<p style="color:red;">商品削除が完了しました。</p>';
+                $category=$_POST['delcategory'];
+                $id=$_POST['delname'];
+                $path1="./img/{$category}/{$id}";
+                $imageDirectory = 'img/' . $category . '/'.$id.'/';
+                $images = glob($imageDirectory . '*.{jpg,jpeg,png,gif}', GLOB_BRACE);
+                if(file_exists($path1)){
+                    foreach ($images as $image) {
+                       unlink($image);
+                    }
                 }
-                rmdir($path1);
+            }catch(Exception $e){
+                echo '<p style="color:red;">購入詳細に保存されているため、削除ができません！</p>';
             }
-
         ?>
         </section>
         <section class="foot">

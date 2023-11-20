@@ -67,6 +67,7 @@
                     echo         '<div>';
                     echo         '<label>カテゴリ：</label>';
                     echo             '<select name="category" class="input-box-option" style="padding: 5px;">';
+                    echo               '<option value="'.$row['category_id'].'" selected>'.$row['category_name'].'</option>';
                                         $cate =[
                                             1 => '家具',
                                             2 => 'ゲーム機',
