@@ -20,8 +20,8 @@
 </head>
 <body>
 <?php
-    $sql=$pdo->prepare('select * from users where mail = ?');
-    $sql->execute([$_POST['mail']]);
+    $sql=$pdo->prepare('select * from users where mail = ? or phone_number = ?');
+    $sql->execute([$_POST['mail'], $_POST['phoneNumber']]);
 
     if(empty($sql->fetchAll())){
 
@@ -42,7 +42,7 @@
         echo '<div class ="wrapper">';
         echo '<div class ="out">';
         echo '<form method="POST" action="user-register.php">';
-        echo 'このメールアドレスは既に登録されています';
+        echo 'この電話番号かメールアドレスは既に登録されています';
         
         echo '<button type="submit" class="btn">戻る</button>';
         echo '</form>';
