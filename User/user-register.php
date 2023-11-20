@@ -13,6 +13,7 @@
             text-align:center;
 
         }
+
         .aaa{
             display: flex;
             justify-content: center;

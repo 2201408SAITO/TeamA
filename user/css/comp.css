@@ -4,6 +4,12 @@
     box-sizing: border-box;
 }
 
+.aaa{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
 
 .wrapper{
     position: relative;
@@ -16,7 +22,7 @@
 }
 .out{
     text-align: center;
-    padding:30px 0;
+    padding:30px 30px;
 }
 
 .btn{
