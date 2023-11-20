@@ -10,7 +10,7 @@
 <body>
 
     <header>
-        <img src="img/logo.png" class="logo" alt="" width="100" height="65">
+    <img style="user-select: none;" src="img/logo.png" class="logo" alt="" width="100" height="65">
         <nav class="logout">
             <a href="ManageLogin.php">ログアウト</a>
         </nav>
