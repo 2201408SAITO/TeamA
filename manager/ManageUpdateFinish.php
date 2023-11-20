@@ -48,9 +48,6 @@
                         foreach ($Oimages as $Oimage) {
                             unlink($Oimage);
                         }
-                        rmdir($OldPath1);
-                    }else{
-                        rmdir($OldPath1);
                     }
                     
                     if(!file_exists($path)){
