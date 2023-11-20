@@ -26,7 +26,7 @@
     <div class="wrapper">
         <div class="box login">
             <h2>ユーザー情報</h2>
-            <form method="POST" action="user-resister-comp.php">
+            <form method="POST" action="user-register-comp.php">
                 <div class="input-box">
                     <input type="text" name="name" maxlength="30" required>
                     <label>名前</label>
