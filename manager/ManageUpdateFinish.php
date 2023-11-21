@@ -11,7 +11,7 @@
 <body>
 
     <header>
-        <img src="img/logo.png" class="logo" alt="" width="100" height="65">
+    <img style="user-select: none;" src="img/logo.png" class="logo" alt="" width="100" height="65">
         <nav class="logout">
             <a href="ManageLogin.php">ログアウト</a>
         </nav>
@@ -44,11 +44,7 @@
                 $OldimageDirectory = 'img/' . $Ocategory . '/'.$Oname.'/';
                 $images = glob($imageDirectory . '*.{jpg,jpeg,png,gif}', GLOB_BRACE);
                 $Oimages = glob($OldimageDirectory . '*.{jpg,jpeg,png,gif}', GLOB_BRACE);
-                    if(file_exists($OldPath1)){
-                        foreach ($Oimages as $Oimage) {
-                            unlink($Oimage);
-                        }
-                    }
+                
                     
                     if(!file_exists($path)){
                         mkdir("./img/{$category}", 0777);
@@ -60,6 +56,7 @@
 
                 // ファイルが複数アップロードされた場合の処理
                 $numFiles = count($_FILES['files']['name']);
+                $numOldFiles = count($Oimages);
                 
                 for ($i = 0; $i < $numFiles; $i++) {
                     $currentFile = $_FILES['files']['tmp_name'][$i];
@@ -80,10 +77,18 @@
                         move_uploaded_file($currentFile, $currentTarget);
                     }
                 }
-                if($uploadOk == 0){
-                    echo '<label>写真なしで</label>';
+                if($uploadOk == 1){
+                    if(file_exists($OldPath1)){
+                        foreach ($Oimages as $Oimage) {
+                            unlink($Oimage);
+                        }
+                    }
+                }else{
+                    foreach ($Oimages as $i => $file) {
+                        rename($file, $path1.'/'.$name.'.jpg');
+                    }
                 }
-                echo '<label>追加に成功しました</label>';
+                echo '<label>更新に成功しました</label>';
                 $pdo = new PDO($connect, USER, PASS);
                 $sql=$pdo->prepare('update goods set category_id = ?,goods_name = ?,price = ?,updated_date=?,count=?,exp =? where goods_id=?');
                 $sql->execute([$_POST['category'],$_POST['name'],$_POST['price'],date("Y/m/d",time()),$_POST['piece'],$_POST['explain'],$_POST['id']]);
