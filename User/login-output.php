@@ -12,7 +12,7 @@ $sql->execute([$_POST['mail']]);
 foreach($sql as $row){
     if($_POST['password'] == $row['password']){
     $_SESSION['users']=[
-        'id'=>$row['user_id'],'name'=>$row['user_name'],
+        'name'=>$row['user_name'],
         'address'=>$row['address'],'mail'=>$row['mail'],
         'password'=>$row['password']];
     }
