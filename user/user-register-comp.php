@@ -28,9 +28,9 @@
 
         echo '<button type="submit" class="btn">ホーム</button>';
         echo '</form>';
-        $_SESSION['user']= [ 
-            'name'= $_POST['name'], 
-            'password' = $_POST['address']
+        $_SESSION['user']=[ 
+            'name'=> $_POST['name'], 
+            'password' => $_POST['address']
             ];
         
     }else{
