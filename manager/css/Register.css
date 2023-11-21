@@ -113,20 +113,8 @@ label{
     height: 10%;
     background-color: #fff4;
     text-align: center;
-    padding:20px;
-    
-}
-
-.register{
-    font-size: 1.1em;
-    color: rgb(13, 12, 12);
-    border: 2px solid rgb(16, 16, 16);
-    width: 5em;
-    height:3em;
-    border-radius: 10px;
-    cursor: pointer;
-    width: 100px;
-    margin: 0 100px;
+    padding-top:20px;
+    padding-bottom:40px;
 }
 
 .image{
