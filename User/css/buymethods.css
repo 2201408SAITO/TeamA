@@ -11,5 +11,9 @@
     right: 1000px;
 }
 .foot{
-    text-align: center;
+    text-align: center  ;
 }
+
+table.table.is-bordered, table.table.is-bordered tr, table.table.is-bordered th, table.table.is-bordered td {
+    border: none;
+  }
