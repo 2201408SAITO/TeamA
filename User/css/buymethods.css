@@ -1,0 +1,15 @@
+.back {
+    display: inline-block; 
+    bottom: 500px;
+    left: 1000px;
+}
+
+.forward {
+    display: inline-block;
+  
+    bottom: 500px;
+    right: 1000px;
+}
+.foot{
+    text-align: center;
+}
