@@ -9,8 +9,7 @@
     <title>Mypage</title>
 </head>
 <body>
-<form action="kensaku-input.php" method="post">
-    <table>
+
         <?php
         echo  $_SESSION['users']['name'], 'さんのマイページ';
            echo '<form method="POST" action="login-input.php">';
@@ -20,7 +19,5 @@
            echo '<button type="submit" class="btn">ログアウト</button>';
            echo '</form>';
         ?>
-    </table>
-</form>
 </body>
 </html>
