@@ -29,14 +29,22 @@ $sql->execute([$user_id, $currentDate, $sum, $plan]);
 $buy_id = $pdo->lastInsertId();
 
 // 購入詳細テーブルに挿入
-foreach ($_SESSION['product'] as $id => $product) {
+
+foreach ($_SESSION['user_cart'][$user_id] as $id => $product) {
     $goods_id = $id;
     $quantity = $product['count'];
 
+    // buy_detail テーブルへの挿入
     $sql_detail = $pdo->prepare('INSERT INTO buy_detail (buy_id, goods_id, buy_size) VALUES (?,?,?)');
     $sql_detail->execute([$buy_id, $goods_id, $quantity]);
-    //在庫を減らす処理
-}             $_SESSION['product'] = array();
+
+    // 在庫を減らす処理（仮の例）
+    // この部分は実際の在庫管理に合わせて修正が必要です
+    $sql_update_stock = $pdo->prepare('UPDATE goods SET count = count - ? WHERE goods_id = ?');
+    $sql_update_stock->execute([$quantity, $goods_id]);
+}
+unset($_SESSION['user_cart'][$user_id]);
+        
      ?>
         <section class="foot">
             <form action="index.php" method="post">
