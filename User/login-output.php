@@ -3,6 +3,7 @@
 <?php require 'menu.php';?>
 <?php require 'db-connect.php';?>
 
+
 <?php
 unset($_SESSION['users']);
 $pdo = new PDO($connect, USER, PASS);
@@ -17,10 +18,24 @@ foreach($sql as $row){
         'password'=>$row['password']];
     }
 }
+
 if(isset($_SESSION['users'])){
-    echo '<div class="title is-4"><div class="has-text-weight-bold is-italic is-underlined has-text-right">ユーザー:',$_SESSION['users']['name'],'</div></div>';
+    echo '<div class ="aaa">';
+    echo '<div class ="wrapper">';
+    echo '<div class ="out">';
+    echo '<form method="POST" action="index.php">';
+    echo 'ようこそ', $_SESSION['users']['name'], 'さん';
+    echo '<button type="submit" class="btn">ホーム</button>';
+    echo '</form>';
 }else {
+    echo '<div class ="aaa">';
+    echo '<div class ="wrapper">';
+    echo '<div class ="out">';
+    echo '<form method="POST" action="login-input.php">';
     echo 'ログイン名またはパスワードが違います。';
+    echo '<button type="submit" class="btn">戻る</button>';
+    echo '</form>';
+
 }
 ?>
 
