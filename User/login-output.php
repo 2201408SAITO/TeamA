@@ -4,6 +4,8 @@
 <?php require 'db-connect.php';?>
 
 
+<link rel="stylesheet" href="css/logincomp.css">
+
 <?php
 unset($_SESSION['users']);
 $pdo = new PDO($connect, USER, PASS);
@@ -18,7 +20,6 @@ foreach($sql as $row){
         'password'=>$row['password']];
     }
 }
-
 if(isset($_SESSION['users'])){
     echo '<div class ="aaa">';
     echo '<div class ="wrapper">';
