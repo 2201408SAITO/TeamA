@@ -23,18 +23,13 @@
         echo '<div class ="aaa">';
         echo '<div class ="wrapper">';
         echo '<div class ="out">';
-        echo '<form method="POST" action="index.php">';
+        echo '<form method="POST" action="login-input.php">';
         echo 'ご登録ありがとうございます';
 
-        echo '<button type="submit" class="btn">ホーム</button>';
+        echo '<button type="submit" class="btn">ログイン</button>';
         echo '</form>';
-        $_SESSION['users']=[ 
-            'name'=> $_POST['name'], 
-            'address' => $_POST['address'],
-            'mail' => $_POST['mail'],
-            'password' => $_POST['password']
-            ];
-        
+
+     
     }else{
 
         echo '<div class ="aaa">';
