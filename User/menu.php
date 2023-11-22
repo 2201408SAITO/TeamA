@@ -29,7 +29,7 @@
     <div class="level-right">
     <div class="level-item"><a href="index.php" ><i class="fas fa-home fa-3x" style="color:dimgray;"></i></a></div>
     <div class="level-item"><a href="cart-show.php" ><i class="fas fa-shopping-cart fa-3x" style="color:dimgray"></i></a></div>
-    <div class="level-item"><a href="login-input.php" ><i class="far fa-user-circle fa-3x" style="color:dimgray"></i></a></div>
+    <div class="level-item"><a href="mypage.php" ><i class="far fa-user-circle fa-3x" style="color:dimgray"></i></a></div>
     </div>
 </nav>
 <hr>
