@@ -1,6 +1,6 @@
 <?php session_start(); ?>
 <?php require 'header.php'; ?>
-<?php require 'menu.php'; ?>
+<?php require 'menu_noswip.php'; ?>
 <?php
     unset($_SESSION['product'][$_GET['id']]);
     echo 'カートから商品を削除しました。';
