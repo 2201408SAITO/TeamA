@@ -56,6 +56,9 @@
         $totalResults = $sql->rowCount(); // 総商品数
 
         $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+
+
+        
         $offset = ($currentPage - 1) * $resultsPerPage;
 
         $sql = $pdo->prepare('SELECT goods_name, price, goods_id, category_id FROM goods LIMIT :offset, :resultsPerPage');
