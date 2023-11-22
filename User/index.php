@@ -42,22 +42,30 @@
             8 => '本',
             
         ];
-        if(isset($_POST['category']) && !empty($_POST['category'])) {
-            // カテゴリーが選択された場合
-            $sql = $pdo->prepare('select goods_name, price, goods_id,category_id from goods where category_id = ? and goods_name like ? limit 0,18');
+        if (isset($_POST['category']) && !empty($_POST['category'])) {
+            $sql = $pdo->prepare('SELECT goods_name, price, goods_id, category_id FROM goods WHERE category_id = ? AND goods_name LIKE ?');
             $sql->execute([$_POST['category'], '%' . $_POST['keyword'] . '%']);
-        } elseif(isset($_POST['keyword'])) {
-            // カテゴリーが選択されていないがキーワードがある場合
-            $sql = $pdo->prepare('select goods_name, price, goods_id,category_id from goods where goods_name like ? limit 0,18');
-            $sql->execute(['%'.$_POST['keyword'].'%']);
+        } elseif (isset($_POST['keyword'])) {
+            $sql = $pdo->prepare('SELECT goods_name, price, goods_id, category_id FROM goods WHERE goods_name LIKE ?');
+            $sql->execute(['%' . $_POST['keyword'] . '%']);
         } else {
-            // カテゴリーもキーワードもない場合
-            $sql = $pdo->query('select category_id,goods_name, price, goods_id from goods limit 0,18');
+            $sql = $pdo->query('SELECT category_id, goods_name, price, goods_id FROM goods');
         }
+
+        $resultsPerPage = 18; // 1ページあたりの表示結果数
+        $totalResults = $sql->rowCount(); // 総商品数
+
+        $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        $offset = ($currentPage - 1) * $resultsPerPage;
+
+        $sql = $pdo->prepare('SELECT goods_name, price, goods_id, category_id FROM goods LIMIT :offset, :resultsPerPage');
+        $sql->bindParam(':offset', $offset, PDO::PARAM_INT);
+        $sql->bindParam(':resultsPerPage', $resultsPerPage, PDO::PARAM_INT);
+        $sql->execute();
+        
         echo '<br><br><br><br><br>';
         
         $count=0;
-        $count_swip=1;
         foreach ($sql as $row) {
 
             if($count == 0){
@@ -67,26 +75,6 @@
             $count += 1;
 
             if($count == 4){
-                $count_swip +=1;
-                if($count_swip == 4){
-                    echo '<div class="swiper mySwiper">';
-                    echo '<div class="swiper-wrapper">';
-                    echo '<div class="swiper-slide"><img src="img/book.png" alt=""></div>';
-                    echo '<div class="swiper-slide"><img src="img/cloth.png" alt=""></div>';
-                    echo '<div class="swiper-slide"><img src="img/cons_elec.png" alt=""></div>';
-                    echo '<div class="swiper-slide"><img src="img/furniture.png" alt=""></div>';
-                    echo '<div class="swiper-slide"><img src="img/game.png" alt=""></div>';
-                    echo '<div class="swiper-slide"><img src="img/pc.png" alt=""></div>';
-                    echo '<div class="swiper-slide"><img src="img/shoes.png" alt=""></div>';
-                    echo '<div class="swiper-slide"><img src="img/smartphone.png" alt=""></div>';
-                    echo '<div class="swiper-slide"><img src="img/toy.png" alt="" ></div>';
-                    echo '</div>';
-                    echo '<div class="swiper-button-next"></div>';
-                    echo '<div class="swiper-button-prev"></div>';
-                echo '</div>';
-                echo '<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>';
-                echo '<script src="js/swip.js"></script>';
-                }
                 $count =1;
             echo '<div class="tile is-ancestor">';
             }
@@ -120,32 +108,43 @@
         }
         ?>
     </table>
-            <nav class="pagination is-rounded" role="navigation" aria-label="pagination">
-                <a class="pagination-previous">前ページへ</a>
-                <a class="pagination-next">次ページへ</a>
+        <br><br><br><br><br>
+            <!-- ページネーションリンク -->
+            <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+                <?php if ($currentPage > 1) : ?>
+                    <a href="?page=<?= $currentPage - 1 ?>" class="pagination-previous">前ページへ</a>
+                <?php endif; ?>
+
+                <?php if ($currentPage < ceil($totalResults / $resultsPerPage)) : ?>
+                    <a href="?page=<?= $currentPage + 1 ?>" class="pagination-next">次ページへ</a>
+                <?php endif; ?>
+
                 <ul class="pagination-list">
-                    <li>
-                    <a class="pagination-link" aria-label="1ページ目へ">1</a>
-                    </li>
-                    <li>
-                    <span class="pagination-ellipsis">…</span>
-                    </li>
-                    <li>
-                    <a class="pagination-link" aria-label="12ページ目へ">12</a>
-                    </li>
-                    <li>
-                    <a class="pagination-link is-current" aria-label="13ページ" aria-current="page">13</a>
-                    </li>
-                    <li>
-                    <a class="pagination-link" aria-label="14ページ目へ">14</a>
-                    </li>
-                    <li>
-                    <span class="pagination-ellipsis">…</span>
-                    </li>
-                    <li>
-                    <a class="pagination-link" aria-label="25ページ目へ">25</a>
-                    </li>
+                    <?php for ($i = 1; $i <= ceil($totalResults / $resultsPerPage); $i++) : ?>
+                        <li>
+                            <a href="?page=<?= $i ?>" class="pagination-link <?= ($i === $currentPage) ? 'is-current' : '' ?>">
+                                <?= $i ?>
+                            </a>
+                        </li>
+                    <?php endfor; ?>
                 </ul>
-        </nav>
+            </nav>
+            <br><br><br>
 </form>
+
+ <br><br><br>
+ <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><a href="cart.php"><img src="img/book.png" alt=""></a></div>
+      <div class="swiper-slide"><a href="cart.php"><img src="img/book.png" alt=""></a></div>
+      <div class="swiper-slide"><a href="cart.php"><img src="img/book.png" alt=""></a></div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+</div>
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+ <!-- swip.js JS -->
+ <script src="js/swip.js"></script>
+ <hr>
 <?php require 'footer.php'; ?>  
