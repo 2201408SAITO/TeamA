@@ -1,31 +1,36 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>クレジットカード情報</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.0/css/bulma.min.css" />
   <link rel="stylesheet" href="css/buymethods.css">
-
 </head>
-
 <body>
 <?php require 'header.php'; ?>
 <?php require 'menu_noswip.php'; ?>
-<form action="buycomp.php" method="POST">
+<?php require 'db-connect.php';?>
+<?php   
+
+$sql=$pdo->prepare('select * from users where user_id=?');
+$sql->execute([$_SESSION['users']['id']]);
+$userData = $sql->fetch(PDO::FETCH_ASSOC);
+$card=$userData['credit_card'];
+echo $card;
+?>
+<form action="buycomp.php" method="POST"class="form">
   <div id="app" class="container">
     <div class="columns is-mobile is-centered">
       <div class="column is-half">
-        <h2 class="title is-1">クレジットカード情報</h2>
-
         <!-- 決済方法のテーブル -->
         <table class="table">
           <thead>
             <tr>
-              <th>決済方法 :</th>
+              <th> 決済方法 :  </th>    
               <th :class="{'is-active': acitiveWordsTab }">
-                <input type="radio" @click="changeTab(1)" name="paymethod" value="credit">クレジット
+                <input type="radio" @click="changeTab(1)" name="paymethod" value="credit" checked>クレジット
               </th>
               <th :class="{'is-active': acitivePriceTab }">
                 <input type="radio" @click="changeTab(2)" name="paymethod" value="daibiki">代引き
@@ -63,11 +68,11 @@
 
     <!-- 警告メッセージのテーブル -->
     <div class="columns is-mobile is-centered">
-      <table class="table">
+      <table class="table"id="myTable">
         <tr>
           <td class="warning">
-            <p>*お支払い回数は一括払いのみになります。</p>
-            <p>*お届け先はMyPageで登録された住所になります。</p>
+            <p>*お支払い回数は一括払いのみになります。</p><br>
+            <p>*お届け先はMyPageで登録された住所になります。</p><br>
             <p>*代引きの場合は手数料770円発生します。</p>
           </td>
         </tr>
@@ -85,12 +90,14 @@
       if(isset($_POST['count'])){
     $count = $_POST['count'];
     echo '<input type="hidden" name="count" value="'.$count.'">';
+     
+
+    
 }
 ?>
       </form>
   
   </div>
-
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="js/buymethods.js"></script>
 </body>

@@ -10,10 +10,27 @@
     bottom: 500px;
     right: 1000px;
 }
-.foot{
-    text-align: center  ;
+.foot {
+    text-align: center;
+    position: fixed;
+    left: 46%;
+    bottom: 150px; /* 画面下部からの距離を調整 */
 }
+
 
 table.table.is-bordered, table.table.is-bordered tr, table.table.is-bordered th, table.table.is-bordered td {
     border: none;
   }
+table{
+    background-color: #dbdbdb !important;
+}
+  .container {
+    background-color: #dbdbdb !important;
+    width: 1000px !important; 
+    height: 450px; 
+    border-radius: 15px; 
+}
+.columns.is-mobile>.column.is-half {
+    flex: none!important;
+    width: 70%!important; 
+}

@@ -6,16 +6,16 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE-edge"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>商品登録完了画面</title>
-    <link rel="stylesheet" href="css/Finish.css">
-    <script src="./script/Register.js"></script>
+    <title>buycomp</title>
+    <link rel="stylesheet" href="css/buycomp.css">
+  
 </head>
 <body> 
-    <h2>ご購入ありがとうございました</h2>
-              <?php
-               
+    <h1>ご購入ありがとうございました</h1>
+    <form action="index.php" method="post">
+                <input type="submit"name="home"value="Home">
+            </form>
+              <?php          
               $user_id=$_SESSION['users']['id'];//ここをセッションで
               $sum=$_POST['count'];//合計金額の受け取り
               $plan=$_POST['paymethod'];//支払方法の受け取り
@@ -38,19 +38,13 @@ foreach ($_SESSION['user_cart'][$user_id] as $id => $product) {
     $sql_detail = $pdo->prepare('INSERT INTO buy_detail (buy_id, goods_id, buy_size) VALUES (?,?,?)');
     $sql_detail->execute([$buy_id, $goods_id, $quantity]);
 
-    // 在庫を減らす処理（仮の例）
-    // この部分は実際の在庫管理に合わせて修正が必要です
+    // 在庫を減らす処理
     $sql_update_stock = $pdo->prepare('UPDATE goods SET count = count - ? WHERE goods_id = ?');
     $sql_update_stock->execute([$quantity, $goods_id]);
 }
 unset($_SESSION['user_cart'][$user_id]);
         
      ?>
-        <section class="foot">
-            <form action="index.php" method="post">
-                <button class="register" type="submit">HOME</button>
-            </form>
-        </section>
-    </main>
+   
 </body>
 </html>

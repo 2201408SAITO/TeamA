@@ -1,0 +1,24 @@
+.container {
+    background-color: #dbdbdb !important;
+    width: 1000px !important; 
+    height: 450px; 
+    border-radius: 15px; 
+}
+h1{
+    color: red;
+    text-align: center;
+    margin-top: 200px;
+    font-size: 30px;
+}
+input[name="home"] {
+    /* 一般的なスタイル */
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #0fb052;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+   margin-left: 45%;
+   margin-top: 50px;
+}
