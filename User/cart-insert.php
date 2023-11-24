@@ -22,6 +22,7 @@ if (isset($_SESSION['user_cart'][$user_id][$id])) {
 
 // 商品情報をセッションに保存
 $_SESSION['user_cart'][$user_id][$id] = [
+    'catename' => $_POST['cate'],
     'name' => $_POST['name'],
     'price' => $_POST['price'],
     'count' => $count + $_POST['count']

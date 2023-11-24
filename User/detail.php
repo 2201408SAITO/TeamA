@@ -73,6 +73,7 @@
                     echo     '<section class="foot">';
                     echo '<input type="hidden" name="id" value="', $row['goods_id'], '">';
                     echo '<input type="hidden" name="name" value="', $row['goods_name'], '">';
+                    echo '<input type="hidden" name="cate" value="', $row['category_name'], '">';
                     echo '<input type="hidden" name="price" value="', $row['price'], '">';
                     echo         '<input type="button" value="戻る" class="register" onclick="'.$l.'">';
                     echo         '<button class="register" type="submit">カートイン</button>';
