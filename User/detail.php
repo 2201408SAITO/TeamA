@@ -59,6 +59,7 @@
                     echo         '<div class="explain">';
                     echo             '<label>商品説明：</label>'.$row['exp'];
                     echo         '</div>';
+                    echo         '<br>';
                     echo '<div>';
                     echo '<label>個数：</label>';
                     echo '<select class="input-box-number" style="padding: 5px;" required="required" name="count">';
