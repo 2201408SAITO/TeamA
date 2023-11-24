@@ -28,14 +28,11 @@
     </button>
     </div>
     <div class="level-right">
-<<<<<<< HEAD
     <div class="level-item"><a href="index.php" ><i class="fas fa-home fa-3x" style="color:seagreen;"></i></a></div>
     <div class="level-item"><a href="cart-show.php" ><i class="fas fa-shopping-cart fa-3x" style="color:seagreen"></i></a></div>
     <div class="level-item"><a href="login-input.php" ><i class="far fa-user-circle fa-3x" style="color:seagreen"></i></a></div>
-=======
     <div class="level-item"><a href="index.php" ><i class="fas fa-home fa-3x" style="color:dimgray;"></i></a></div>
     <div class="level-item"><a href="cart-show.php" ><i class="fas fa-shopping-cart fa-3x" style="color:dimgray"></i></a></div>
-<<<<<<< HEAD
     <?php
     if(!empty($_SESSION['users'])){
         echo '<div class="level-item"><a href="mypage.php" ><i class="far fa-user-circle fa-3x" style="color:dimgray"></i></a></div>';
@@ -43,10 +40,7 @@
         echo '<div class="level-item"><a href="login-input.php" ><i class="far fa-user-circle fa-3x" style="color:dimgray"></i></a></div>';
     }
     ?>
-=======
     <div class="level-item"><a href="login-input.php" ><i class="far fa-user-circle fa-3x" style="color:dimgray"></i></a></div>
->>>>>>> fb3a0d3675c6950b7cd392a06841c3874e8b0dde
->>>>>>> 8ec350f6b6b4fbb7fa3901b7a74248406307b5a1
     </div>
 </nav>
 </form>
