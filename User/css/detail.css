@@ -7,8 +7,7 @@
 body{
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-   
+    height: 67% !important; 
 }
 h2{
     font-weight: bold !important;
