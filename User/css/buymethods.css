@@ -13,8 +13,9 @@
 .foot {
     text-align: center;
     position: fixed;
-    left: 46%;
+    left: 34%;
     bottom: 250px; /* 画面下部からの距離を調整 */
+    
 }
 
 
@@ -31,11 +32,35 @@ table{
     width: 1100px !important; 
     height: 700px;
     border-radius: 15px;
+
      
 }
 .columns.is-mobile>.column.is-half {
     flex: none!important;
     width: 70%!important; 
 }
-
+button{
+    font-size: 1.1em;
+    color: #fff;
+    border: 2px solid rgb(16, 16, 16);
+    background-color: #50b57a;
+    width: 5em;
+    height:3em;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100px;
+    margin: 0 100px;
+}
+.register{
+    font-size: 1.1em;
+    color: #fff;
+    border: 2px solid rgb(16, 16, 16);
+    background-color: #50b57a;
+    width: 5em;
+    height:3em;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100px;
+    margin: 0 100px;
+}
 
