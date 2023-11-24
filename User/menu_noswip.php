@@ -1,5 +1,5 @@
 <?php require 'header.php'; ?>
-<div class="aaa">
+<div class="abc">
 <form action="index.php" method="post" class="has-background-success-light">
 <nav class="level">
 <a href="index.php" ><img src="img/logo.png" class="logo" alt="" width="100" height="85"></a>
@@ -53,7 +53,7 @@
     .level-right{
       margin-right:20px;
     }
-    .aaa{
+    .abc{
       position: fixed;
       top:0;
       z-index: 999;

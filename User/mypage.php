@@ -11,12 +11,12 @@
 <body>
 
         <?php
-        echo  $_SESSION['users']['name'], 'さんのマイページ';
+        echo  '<br>' ,$_SESSION['users']['name'], 'さんのマイページ</br>';
            echo '<form method="POST" action="login-input.php">';
-           echo '<button type="submit" class="btn">ログイン画面</button>';
+           echo '<br><button type="submit" class="btn">ログイン画面</button></br>';
            echo '</form>';
-           echo '<form method="POST" action="logout-input.php">';
-           echo '<button type="submit" class="btn">ログアウト</button>';
+           echo '<form method="POST" action="logout-input.php"><br>';
+           echo '<br><button type="submit" class="btn">ログアウト</button></br>';
            echo '</form>';
         ?>
 </body>

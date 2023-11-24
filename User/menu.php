@@ -1,5 +1,5 @@
 <?php require 'header.php'; ?>
-<div class="aaa">
+<div class="abc">
 <form action="index.php" method="post" class="has-background-success-light">
 <nav class="level">
 <a href="index.php" ><img src="img/logo.png" class="logo" alt="" width="100" height="85"></a>
@@ -32,9 +32,9 @@
     <div class="level-item"><a href="cart-show.php" ><i class="fas fa-shopping-cart fa-3x" style="color:seagreen"></i></a></div>
     <?php
     if(!empty($_SESSION['users'])){
-        echo '<div class="level-item"><a href="mypage.php" ><i class="far fa-user-circle fa-3x" style="color:dimgray"></i></a></div>';
+        echo '<div class="level-item"><a href="mypage.php" ><i class="far fa-user-circle fa-3x" style="color:seagreen"></i></a></div>';
     }else{
-        echo '<div class="level-item"><a href="login-input.php" ><i class="far fa-user-circle fa-3x" style="color:dimgray"></i></a></div>';
+        echo '<div class="level-item"><a href="login-input.php" ><i class="far fa-user-circle fa-3x" style="color:"></i></a></div>';
     }
     ?>
     </div>
@@ -94,7 +94,7 @@
       object-fit: cover;
     }
 
-    .aaa{
+    .abc{
       position: fixed;
       top:0;
       z-index: 999;
