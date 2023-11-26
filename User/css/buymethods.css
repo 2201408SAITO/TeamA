@@ -14,10 +14,9 @@
     text-align: center;
     position: fixed;
     left: 34%;
-    bottom: 250px; /* 画面下部からの距離を調整 */
+    bottom: 170px; /* 画面下部からの距離を調整 */
     
 }
-
 
 table.table.is-bordered, table.table.is-bordered tr, table.table.is-bordered th, table.table.is-bordered td {
     border: none;
@@ -30,13 +29,19 @@ table{
   .container {
     background-color: #dbdbdb !important;
     width: 1100px !important; 
-    height: 700px;
+    height: 750px;
     border-radius: 15px;
+    margin-top: 150px !important;
 
      
 }
+.columns.is-centered {
+    justify-content: center;
+    margin-top: 50px;
+}
 .columns.is-mobile>.column.is-half {
     flex: none!important;
+    
     width: 70%!important; 
 }
 button{

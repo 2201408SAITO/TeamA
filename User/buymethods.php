@@ -18,7 +18,6 @@ $sql=$pdo->prepare('select * from users where user_id=?');
 $sql->execute([$_SESSION['users']['id']]);
 $userData = $sql->fetch(PDO::FETCH_ASSOC);
 $card=$userData['credit_card'];
-echo $card;
 ?>
 <form action="buycomp.php" method="POST"class="form">
   <div id="app" class="container">
@@ -45,7 +44,7 @@ echo $card;
   <table class="table is-bordered">
     <tr>
       <td>クレジットカード番号</td>
-      <td><input type="text"name=""></td>
+      <td><input type="text" value="<?php echo $card; ?>" name="card"></td>
     </tr>
     <tr>
       <td>クレジットカード有効期限</td>
