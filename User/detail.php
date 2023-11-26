@@ -19,8 +19,8 @@
                  require 'db-connect.php';
                
                 $l = "location.href='index.php'";
-                $file = "fileInput";
-                $s = "this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g,'$1');";
+                
+                
        
                 $sql=$pdo->prepare('select goods. * , category_name from goods inner join categories on goods.category_id = categories.category_id where goods_id=?');
                 $sql->execute([$_GET['id']]);
