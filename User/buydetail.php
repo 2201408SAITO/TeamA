@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="jp">
 <head>
@@ -8,10 +9,10 @@
     <link rel="stylesheet" href="css/buydetail.css">
 </head>
 
-<header>
+
     <?php require 'header.php'; ?>
-    <?php require 'menu.php'; ?>
-</header>
+    <?php require 'menu_noswip.php'; ?>
+
 <main class="wrapper">
     <section class="head">
         <h1>購入詳細</h1>
@@ -59,7 +60,7 @@
 
                 echo '<tr>';
                 // 商品画像を表示するためのコード
-                echo '<td><img src="' . $firstImage . '" alt="' . $catename . '" width="100" height="100"></td>';
+                echo '<td><img src="' . $firstImage . '" alt="' . $catename . '" width="100" height="100"class="UpdatedImages"></td>';
                 echo '<td style="word-break: break-word">', $row['商品名'], '</td>';
                 echo '<td style="word-break: break-word">', $row['値段'], '</td>';
                 echo '<td style="word-break: break-word">', $row['数量'], '</td>';

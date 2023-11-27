@@ -17,7 +17,7 @@
     display: flex;
     border-radius: 20px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.06);
-    background: #e3e6f3;
+    background: #e9f3e3;
     color: #000000;
 }
 .out{
@@ -28,7 +28,7 @@
 .btn{
     width: 100%;
     height: 45px;
-    background: #162938;
+    background: #175222;
     border: none;
     outline: none;
     border-radius: 6px;

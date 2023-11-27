@@ -122,6 +122,7 @@ tbody tr:hover{
     background-color: #fff6;
 }
 
+
 .register{
     font-size: 1.1em;
     color: #fff;
@@ -144,9 +145,7 @@ tbody tr:hover{
     margin: 1px;
 }
 
-form{
-    display: inline;
-}
+
 
 @media (max-width=1000px){
     td:not(:first-of-type){

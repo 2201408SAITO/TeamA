@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <?php require 'header.php'; ?>
 <div class="abc">
 <form action="index.php" method="post" class="has-background-success-light">

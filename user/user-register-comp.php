@@ -1,6 +1,6 @@
 <?php session_start(); ?>
 <?php require 'db-connect.php'?>
-<?php require 'menu.php'; ?>
+<?php require 'menu_noswip.php'; ?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>

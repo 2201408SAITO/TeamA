@@ -15,7 +15,6 @@
 <?php
 
 $user_id = $_SESSION['users']['id'];
-
 $total = 0; //カートの合計金額
 
 if (!empty($_SESSION['user_cart'][$user_id])) {

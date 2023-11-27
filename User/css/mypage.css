@@ -1,0 +1,44 @@
+.main{
+    font-size: 35px;
+}
+p{
+    font-size: 35px;
+}
+hr{
+    border-top: 3px double #aaa;
+}
+.btn{
+    width: 200px;
+    height: 45px;
+    background: #175222;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    color: #fff;
+    font-weight: 500;
+    margin-top: 20px;
+    margin: 20px;
+   
+}
+.out_btn{
+    width: 200px;
+    height: 45px;
+    background: #e71b1b;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    color: #fff;
+    font-weight: 500;
+    margin-top: 20px;
+    margin: 20px;
+    
+}
+.but{
+    display: flex;
+        justify-content: flex-end;
+    }
+    
