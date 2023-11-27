@@ -113,18 +113,24 @@ table{
     margin-left: 130px !important;
 }
 .sum{
+    position: fixed;
     display: inline-block !important;
     margin-right: 400px !important;
     text-align: center;
-    margin-left: 230px;
+    bottom: 130px;
+    right: 500px;
     font-size: 25px;
 }
 .total{
+    position: fixed;
     display: inline-block !important;
     margin-right: 10px !important;
     font-size: 25px;
+    bottom: 130px;
+    right:400px
 }
 .register{
+    position: fixed;
     font-size: 1.1em;
     color: #fff;
     border: 2px solid rgb(16, 16, 16);
@@ -134,7 +140,9 @@ table{
     border-radius: 10px;
     cursor: pointer;
     width: 100px;
-    margin: 0 100px;
+    bottom: 130px;
+    left:500px;
+    
 }
 
 @media (max-width=1000px){

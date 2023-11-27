@@ -13,7 +13,10 @@
 <?php require 'menu_noswip.php'; ?>
 <?php require 'db-connect.php';?>
 <?php   
-
+if (!isset($_SESSION['users']['id'])) {
+  header("Location: login-input.php"); // ログインページのURLに変更してください
+  exit();
+}
 $sql=$pdo->prepare('select * from users where user_id=?');
 $sql->execute([$_SESSION['users']['id']]);
 $userData = $sql->fetch(PDO::FETCH_ASSOC);
@@ -73,27 +76,24 @@ $card=$userData['credit_card'];
             <p>*お支払い回数は一括払いのみになります。</p><br>
             <p>*お届け先はMyPageで登録された住所になります。</p><br>
             <p>*代引きの場合は手数料770円発生します。</p>
+         
           </td>
         </tr>
       </table>
     </div>
 
     <!-- ボタンのセクション -->
-   
-      
-      <section class="foot">
-                        <input type="button" value="戻る" class="register" onclick="location.href='cart.php'">
-                    <button class="register" type="submit">決済</button>
-      </section>
-   <?php   
+    <?php   
       if(isset($_POST['count'])){
     $count = $_POST['count'];
-    echo '<input type="hidden" name="count" value="'.$count.'">';
-     
-
-    
+    echo '<input type="hidden" name="count" value="'.$count.'">';  
 }
 ?>
+      
+      <section class="foot">
+                        <input type="button" value="戻る" class="register" onclick="location.href='cart-show.php'">
+                    <button class="register" type="submit">決済</button>
+      </section>
       </form>
   
   </div>

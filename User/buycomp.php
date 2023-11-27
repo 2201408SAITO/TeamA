@@ -12,6 +12,7 @@
 </head>
 <body> 
     <h1>ご購入ありがとうございました</h1>
+
     <form action="index.php" method="post">
                 <input type="submit"name="home"value="Home">
             </form>
@@ -19,7 +20,7 @@
               $user_id=$_SESSION['users']['id'];//ここをセッションで
               $sum=$_POST['count'];//合計金額の受け取り
               $plan=$_POST['paymethod'];//支払方法の受け取り
-              $currentDate = date("Y-m-d"); // 現在の日付を取得
+              $currentDate = date("Y-m-d"); // 現在の日付を取得 
                  //購入に挿入するデータはユーザーidと購入日、合計金額、支払方法             
 $sql = $pdo->prepare('INSERT INTO buy (user_id, buy_date, total, plan) VALUES (?, ?, ?, ?)');
 $sql->execute([$user_id, $currentDate, $sum, $plan]);

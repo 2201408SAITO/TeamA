@@ -13,6 +13,10 @@
                 <h2>カートインされた商品</h2>
             </section>
 <?php
+if (!isset($_SESSION['users']['id'])) {
+    header("Location: login-input.php"); // ログインページのURLに変更してください
+    exit();
+}
 $user_id = $_SESSION['users']['id'];
 
 if (!empty($_SESSION['user_cart'][$user_id])) {
@@ -21,7 +25,7 @@ if (!empty($_SESSION['user_cart'][$user_id])) {
     echo '<tr><th>商品画像</th><th></th><th>商品名</th><th></th>';
     echo '<th>個数</th><th></th><th>価格</th><th></th><th></th></tr>';
     $total = 0;
-    echo '<form action="buymethods.php" method="POST">'; // Move the form outside the loop
+    echo '<form action="buymethods.php" method="POST">'; 
 
     foreach ($_SESSION['user_cart'][$user_id] as $id => $product) {
         $name = $product['name'];
@@ -39,7 +43,7 @@ if (!empty($_SESSION['user_cart'][$user_id])) {
         $total += $subtotal;
     
         
-        // Add the dropdown menu for quantity
+       
         echo '<td>';
         echo $product['count'];
         echo '</td>';
@@ -55,7 +59,7 @@ if (!empty($_SESSION['user_cart'][$user_id])) {
     
     echo '<input type="hidden" name="action" value="update_cart">';
     echo '<input type="hidden" name="count" value="' . $total . '">';
-    echo '</form>';
+  
 
     echo '</table>';
     echo '</section>';
@@ -65,6 +69,7 @@ if (!empty($_SESSION['user_cart'][$user_id])) {
 echo '<input type="submit" value="会計" class="register">';
 echo '<div class="sum">合計金額</div>';
 echo '<div class="total">'.$total.'</div>';
+echo '</form>';
 ?>
 </div>
 
