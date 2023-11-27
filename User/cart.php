@@ -13,10 +13,7 @@
                 <h2>カートインされた商品</h2>
             </section>
 <?php
-if (!isset($_SESSION['users']['id'])) {
-    header("Location: login-input.php"); // ログインページのURLに変更してください
-    exit();
-}
+
 $user_id = $_SESSION['users']['id'];
 
 if (!empty($_SESSION['user_cart'][$user_id])) {
@@ -24,7 +21,7 @@ if (!empty($_SESSION['user_cart'][$user_id])) {
     echo '<table>';
     echo '<tr><th>商品画像</th><th></th><th>商品名</th><th></th>';
     echo '<th>個数</th><th></th><th>価格</th><th></th><th></th></tr>';
-    $total = 0;
+    
     echo '<form action="buymethods.php" method="POST">'; 
 
     foreach ($_SESSION['user_cart'][$user_id] as $id => $product) {
