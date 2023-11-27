@@ -149,19 +149,6 @@
     <br><br><br>
 </form>
 
-<br><br><br>
-<div class="swiper mySwiper">
-    <div class="swiper-wrapper">
-        <div class="swiper-slide"><a href="cart.php"><img src="img/book.png" alt=""></a></div>
-        <div class="swiper-slide"><a href="cart.php"><img src="img/book.png" alt=""></a></div>
-        <div class="swiper-slide"><a href="cart.php"><img src="img/book.png" alt=""></a></div>
-    </div>
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-</div>
-<!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-<!-- swip.js JS -->
-<script src="js/swip.js"></script>
+<br><br><br><br>
 <hr>
 <?php require 'footer.php'; ?>
