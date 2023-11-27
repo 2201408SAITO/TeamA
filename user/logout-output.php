@@ -1,6 +1,8 @@
 <?php session_start(); ?>
 <?php require 'header.php'; ?>
 <?php require 'menu_noswip.php'; ?>
+
+<link rel="stylesheet" href="css/logincomp.css">
 <?php
 if(isset($_SESSION['users'])){
     unset($_SESSION['users']);
