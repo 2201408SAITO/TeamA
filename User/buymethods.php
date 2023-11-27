@@ -13,10 +13,7 @@
 <?php require 'menu_noswip.php'; ?>
 <?php require 'db-connect.php';?>
 <?php   
-if (!isset($_SESSION['users']['id'])) {
-  header("Location: login-input.php"); // ログインページのURLに変更してください
-  exit();
-}
+
 $sql=$pdo->prepare('select * from users where user_id=?');
 $sql->execute([$_SESSION['users']['id']]);
 $userData = $sql->fetch(PDO::FETCH_ASSOC);

@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <?php require 'header.php'; ?>
 <div class="abc">
 <form action="index.php" method="post" class="has-background-success-light">
@@ -35,7 +34,7 @@
     if(!empty($_SESSION['users'])){
         echo '<div class="level-item"><a href="mypage.php" ><i class="far fa-user-circle fa-3x" style="color:seagreen"></i></a></div>';
     }else{
-        echo '<div class="level-item"><a href="login-input.php" ><i class="far fa-user-circle fa-3x" style="color:"></i></a></div>';
+        echo '<div class="level-item"><a href="login-input.php" ><i class="far fa-user-circle fa-3x" style="color:seagreen"></i></a></div>';
     }
     ?>
     </div>
