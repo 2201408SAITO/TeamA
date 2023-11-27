@@ -13,13 +13,8 @@
                 <h2>カートインされた商品</h2>
             </section>
 <?php
-if (!isset($_SESSION['users']['id'])) {
-    header("Location: login-input.php"); // ログインページのURLに変更してください
-    exit();
-}
-$user_id = $_SESSION['users']['id'];
 
-$total = 0; //カートの合計金額
+$user_id = $_SESSION['users']['id'];
 
 if (!empty($_SESSION['user_cart'][$user_id])) {
     echo '<section class="body">';
