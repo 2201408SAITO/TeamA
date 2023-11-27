@@ -1,19 +1,17 @@
+<
+<?php require 'header.php'; ?>
+<?php require 'menu_noswip.php'; ?>
+    
 <!DOCTYPE html>
-<html lang="jp">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>購入履歴一覧</title>
-    <link rel="stylesheet" href="css/buylist.css">
+   <link rel="stylesheet" href="css/buylist.css">
 </head>
 <body>
-
-    <header>
-        <?php require 'header.php'; ?>
-        <?php require 'menu.php'; ?>
-    </header>
-    <main class="wrapper">
+<main class="wrapper">
+    
         <section class="head">
             <h1>購入履歴一覧</h1>
         </section>
@@ -23,7 +21,7 @@
             $pdo = new PDO($connect, USER, PASS);
             echo '<table><thead><tr><th>購入ID</th><th>購入日付</th><th>購入合計額</th><th></th></tr></thead>';
             echo '<tbody>';
-            $userID = 1; // ユーザーIDの指定
+            $userID = 20; // ユーザーIDの指定
             $sql = $pdo->prepare('
             SELECT 
                 c.user_id AS ユーザーid,
