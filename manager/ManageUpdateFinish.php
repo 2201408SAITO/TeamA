@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="jp">
 <head>
@@ -9,7 +10,10 @@
     <script src="./script/Register.js"></script>
 </head>
 <body>
-
+    <?php
+require 'db-connect.php';
+    if(isset($_SESSION['manager'])){
+    ?>
     <header>
     <img style="user-select: none;" src="img/logo.png" class="logo" alt="" width="100" height="65">
         <nav class="logout">
@@ -19,7 +23,6 @@
     <main class="wrapper">
         <section class="body">
         <?php
-                require 'db-connect.php';
                 $categories = array(
                     1 => '家具',
                     2 => 'ゲーム機',
@@ -84,9 +87,10 @@
                         }
                     }
                 }else{
-                    foreach ($Oimages as $i => $file) {
-                        rename($file, $path1.'/'.$name.'.jpg');
-                    }
+                        foreach ($Oimages as $i => $file) {
+                            rename($file, $path1.'/'.pathinfo($file,PATHINFO_FILENAME).'.jpg');
+
+                        }
                 }
                 echo '<label>更新に成功しました</label>';
                 $pdo = new PDO($connect, USER, PASS);
@@ -101,5 +105,24 @@
             </form>
         </section>
     </main>
+
+    <?php
+    }else{
+        echo '<header>';
+        echo '<img style="user-select: none;" src="img/logo.png" class="logo" alt="" width="100" height="65">';
+        echo '</header>';
+        echo '<main class="WrapperFinish">';
+        echo '<section class="BodyFinish">';
+        echo    '<label style="color:red;">ログインしてください</label>';
+        echo '</section>';
+        echo '<section class="FootFinish">';
+        echo '<form action="ManageLogin.php" method="post">';
+        echo     '<input type="hidden" name="logout">';
+        echo     '<button class="register" type="submit">ログイン</button>';
+        echo '</form>';
+        echo '</section>';
+        echo '</main>';
+    }
+    ?>
 </body>
 </html>

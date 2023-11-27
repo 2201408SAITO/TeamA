@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+<?php unset($_SESSION['manager']); ?>
 <!DOCTYPE html>
 <html lang="ja"> 
 <head>
@@ -33,32 +35,34 @@
                 </div>
                 <div class="error-message" id="error-msg"></div>
                 <button type="submit" class="btn">Login</button>
-               
             </form>
         </div>
     </div>
     <?php
         require 'db-connect.php';
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $id = $_POST["id"];
-            $pass = $_POST["pass"];
-            $stmt = $pdo->prepare("SELECT * FROM employees WHERE employee_id = ?");
-            $stmt->execute([$id]);
-            $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-            if ($row) {
-                $mpass = $row["password"];
-                if ($mpass === $pass) {
-                    // ログイン成功時の処理（ManageList.htmlへ遷移）
-                    echo '<script>window.location.replace("ManageList.php");</script>';
-                    exit;
-                } else { 
-                    // パスワードが一致しない場合のエラーメッセージ
-                    echo '<script>document.getElementById("error-msg").innerHTML = "ログインに失敗しました.";</script>';
+        if(!isset($_POST['logout'])){
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                $id = $_POST["id"];
+                $pass = $_POST["pass"];
+                $stmt = $pdo->prepare("SELECT * FROM employees WHERE employee_id = ?");
+                $stmt->execute([$id]);
+                $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                if ($row) {
+                    $mpass = $row["password"];
+                    if ($mpass === $pass) {
+                        // ログイン成功時の処理（ManageList.htmlへ遷移）
+                        $_SESSION['manager']=[
+                            'id'=>$row['employee_id'],'name'=>$row['employee_name'],'password'=>$row['password']];
+                        echo '<script>window.location.replace("ManageList.php");</script>';
+                        exit;
+                    }else { 
+                        // パスワードが一致しない場合のエラーメッセージ
+                        echo '<script>document.getElementById("error-msg").innerHTML = "ログインに失敗しました.";</script>';
+                    }
+                } else {
+                    // ユーザーIDが見つからない場合のエラーメッセージ
+                    echo '<script>document.getElementById("error-msg").innerHTML = "ユーザーIDが存在しません.";</script>';
                 }
-            } else {
-                // ユーザーIDが見つからない場合のエラーメッセージ
-                echo '<script>document.getElementById("error-msg").innerHTML = "ユーザーIDが存在しません.";</script>';
             }
         }
     ?>

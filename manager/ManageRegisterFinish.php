@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="jp">
 <head>
@@ -9,7 +10,10 @@
     <script src="./script/Register.js"></script>
 </head>
 <body>
-
+<?php
+    require 'db-connect.php';
+    if(isset($_SESSION['manager'])){
+    ?>
     <header>
     <img style="user-select: none;" src="img/logo.png" class="logo" alt="" width="100" height="65">
         <nav class="logout">
@@ -19,7 +23,6 @@
     <main class="wrapper">
         <section class="body">
         <?php
-                require 'db-connect.php';
                 $categories = array(
                     1 => '家具',
                     2 => 'ゲーム機',
@@ -72,7 +75,6 @@
                 $pdo = new PDO($connect, USER, PASS);
                 $sql=$pdo->prepare('insert into goods(category_id,goods_name,price,register_date,count,exp) value (?,?,?,?,?,?)');
                 $sql->execute([$_POST['category'],$_POST['name'],$_POST['price'],date("Y/m/d",time()),$_POST['piece'],$_POST['explain']]);
-                
                 ?>
         </section>
         <section class="foot">
@@ -81,5 +83,23 @@
             </form>
         </section>
     </main>
+    <?php
+}else{
+        echo '<header>';
+        echo '<img style="user-select: none;" src="img/logo.png" class="logo" alt="" width="100" height="65">';
+        echo '</header>';
+        echo '<main class="WrapperFinish">';
+        echo '<section class="BodyFinish">';
+        echo    '<label style="color:red;">ログインしてください</label>';
+        echo '</section>';
+        echo '<section class="FootFinish">';
+        echo '<form action="ManageLogin.php" method="post">';
+        echo     '<input type="hidden" name="logout">';
+        echo     '<button class="register" type="submit">ログイン</button>';
+        echo '</form>';
+        echo '</section>';
+        echo '</main>';
+    }
+    ?>
 </body>
 </html>
