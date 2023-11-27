@@ -1,3 +1,4 @@
+<?php require 'db-connect.php'?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -26,31 +27,38 @@ if (!empty($_SESSION['user_cart'][$user_id])) {
     echo '<form action="buymethods.php" method="POST">'; 
 
     foreach ($_SESSION['user_cart'][$user_id] as $id => $product) {
-        $name = $product['name'];
-        $path1 = "../manager/img/{$product['catename']}/{$name}/";
-        $images = glob($path1 . '*.{jpg,jpeg,png,gif}', GLOB_BRACE);
-        $firstImage = $images[0];
- 
-        echo '<tr>';
+
+        $sql=$pdo->prepare('select count from goods where goods_id =?');
+        $sql->execute([$id]);
+        $row = $sql->fetch(PDO::FETCH_BOTH);
+        $zaiko = $row['count'];
         
-        echo '<td><a href="detail.php?id=', $id, '"><img alt="image"class="UpdatedImages" src="' . $firstImage . '"width="100" height="100"></a></td>';
-        echo '<td></td>';
-        echo '<td><a href="detail.php?id=', $id, '">', $product['name'], '</a></td>';
-        echo '<td></td>';
-        $subtotal = $product['price'] * $product['count'];
-        $total += $subtotal;
-    
-        
-       
-        echo '<td>';
-        echo $product['count'];
-        echo '</td>';
-        echo '<td></td>';
-        echo '<td>', $product['price'], '</td>';
-        echo '<td></td>';
-        echo '<td><a href="cart-delete.php?id=', $id, '">削除</a></td>';
-        echo '</tr>';
+        if($zaiko >= $product['count']){
+            $name = $product['name'];
+            $path1 = "../manager/img/{$product['catename']}/{$name}/";
+            $images = glob($path1 . '*.{jpg,jpeg,png,gif}', GLOB_BRACE);
+            $firstImage = $images[0];
      
+            echo '<tr>';
+            
+            echo '<td><a href="detail.php?id=', $id, '"><img alt="image"class="UpdatedImages" src="' . $firstImage . '"width="100" height="100"></a></td>';
+            echo '<td></td>';
+            echo '<td><a href="detail.php?id=', $id, '">', $product['name'], '</a></td>';
+            echo '<td></td>';
+            $subtotal = $product['price'] * $product['count'];
+            $total += $subtotal;
+        
+            
+           
+            echo '<td>';
+            echo $product['count'];
+            echo '</td>';
+            echo '<td></td>';
+            echo '<td>', $product['price'], '</td>';
+            echo '<td></td>';
+            echo '<td><a href="cart-delete.php?id=', $id, '">削除</a></td>';
+            echo '</tr>';
+        }
     } 
 
 
