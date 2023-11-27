@@ -20,7 +20,7 @@
     
     // 取得したユーザー情報を表示する
     $row = $sql->fetch(PDO::FETCH_ASSOC);
-    echo  '<p>',$_SESSION['users']['id'], 'さんのマイページ<p>';
+    echo  '<p>',$_SESSION['users']['name'], 'さんのマイページ<p>';
     echo '<hr>';
     echo '<p>名前　　　　　　', $row['user_name'], '</p>';
     echo '<p>郵便番号　　　　', $row['post_code'], '</p>';
