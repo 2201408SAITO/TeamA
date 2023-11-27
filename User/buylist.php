@@ -1,4 +1,4 @@
-<
+<?php session_start();?>
 <?php require 'header.php'; ?>
 <?php require 'menu_noswip.php'; ?>
     
@@ -21,7 +21,7 @@
             $pdo = new PDO($connect, USER, PASS);
             echo '<table><thead><tr><th>購入ID</th><th>購入日付</th><th>購入合計額</th><th></th></tr></thead>';
             echo '<tbody>';
-            $userID = 20; // ユーザーIDの指定
+            $userID = $_SESSION['users']['id']; // ユーザーIDの指定
             $sql = $pdo->prepare('
             SELECT 
                 c.user_id AS ユーザーid,
@@ -60,7 +60,7 @@
             ?>
         </section>
         <section class="foot">
-            <form action="Maypage.php" method="post">
+            <form action="mypage.php" method="post">
                 <button class="register" type="submit">戻る</button>
             </form>
         </section>
