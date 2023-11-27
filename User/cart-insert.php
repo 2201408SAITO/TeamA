@@ -9,8 +9,6 @@ if (!isset($_SESSION['users']['id'])) {
 
 ?>
 <?php
-session_start();
-
 require 'header.php';
 require 'menu_noswip.php';
 
