@@ -21,11 +21,11 @@ require 'menu_noswip.php';
     <title>credit-register</title>
 </head>
 <body>
+
     <div class="wrapper">
         <section class="head">
             <h2>クレジットカード情報</h2>
         </section>
-
         <form method="post" action="credit_card-comp.php">
             <p class="num">クレジットカード番号<input type="text" value="<?php echo $card; ?>" name="credit_card_number" required minlength="16" maxlength="16"></p><br>
             <p class="expiry">クレジットカード有効期限<input type="text"value="<?php echo $_SESSION['credit_card'][$user]['expiry_month']; ?> "name="expiry_month" required maxlength="2">月
