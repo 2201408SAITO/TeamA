@@ -1,4 +1,4 @@
-
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="ja">
 	<head>
@@ -16,6 +16,10 @@
         </script>
 	</head>
 	<body>
+    <?php
+    require 'db-connect.php';
+    if(isset($_SESSION['manager'])){
+    ?>
         <header>
         <img style="user-select: none;" src="img/logo.png" class="logo" alt="" width="100" height="65">
             <nav class="logout">
@@ -27,8 +31,6 @@
                 <h2>商品更新</h2>
             </section>
             <?php
-                require 'db-connect.php';
-                
                 $l = "location.href='ManageList.php'";
                 $file = "fileInput";
                 $s = "this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g,'$1');";
@@ -100,5 +102,23 @@
                 }
             ?>
         </div>
+        <?php
+    }else{
+        echo '<header>';
+        echo '<img style="user-select: none;" src="img/logo.png" class="logo" alt="" width="100" height="65">';
+        echo '</header>';
+        echo '<main class="WrapperFinish">';
+        echo '<section class="BodyFinish">';
+        echo    '<label style="color:red;">ログインしてください</label>';
+        echo '</section>';
+        echo '<section class="FootFinish">';
+        echo '<form action="ManageLogin.php" method="post">';
+        echo     '<input type="hidden" name="logout">';
+        echo     '<button class="register" type="submit">ログイン</button>';
+        echo '</form>';
+        echo '</section>';
+        echo '</main>';
+    }
+    ?>
     </body>
 </html>

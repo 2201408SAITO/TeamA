@@ -41,7 +41,7 @@
 
     echo '<hr>';
     echo '<p>あなたのポイント　', $row['point'], 'Pt','</p>';
-    echo '<p>クレジットカード情報　　<a href="credit_card.php">こちらから</a></p>';
+    echo '<p>クレジットカード情報　　<a href="user_virify.php">こちらから</a></p>';
 
     echo '<div class="but">';
     echo '<form action="buylist.php" method="post">';
