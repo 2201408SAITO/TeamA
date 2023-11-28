@@ -22,6 +22,7 @@ foreach($sql as $row){
         'password'=>$row['password']];
     }
 }
+
 if(isset($_SESSION['users'])){
     echo '<div class ="aaa">';
     echo '<div class ="wrapper">';
