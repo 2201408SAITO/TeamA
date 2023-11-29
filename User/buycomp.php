@@ -1,7 +1,7 @@
 <?php session_start();?>
 <?php
 if (!isset($_SESSION['users']['id'])) {
-    header('Location: https://aso2201418.vivian.jp/GitHub/TeamA/User/login-input.php');
+    header('Location: login-input.php');
     exit(); // これ以降のコードを実行しない
 }
 
