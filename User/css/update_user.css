@@ -1,0 +1,33 @@
+.main{
+    font-size: 35px;
+}
+p{
+    font-size: 35px;
+}
+hr{
+    border-top: 3px double #aaa;
+}
+td{
+    font-size: 35px;
+}
+.btn{
+    width: 200px;
+    height: 45px;
+    background: #175222;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    color: #fff;
+    font-weight: 500;
+    margin-top: 20px;
+    margin: 20px;
+   
+}
+.but{
+        text-align: center;
+    }
+    
+
+    
