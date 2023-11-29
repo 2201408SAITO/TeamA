@@ -119,8 +119,8 @@ header{
         <div class="input-box">
             <input type="password" name="password" required>
             <label>Password</label>
+            <div id="error-msg" class="error" style="text-align:center; color:red; margin: 15px;" ></div>
         </div>
-        <div class="error-message" id="error-msg"></div>
         <button input type="submit" class="btn" value="認証">Login</button>
      </form>
 <?php
