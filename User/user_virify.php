@@ -4,14 +4,13 @@
         if($_POST['mail'] == $_SESSION['users']['mail'] && $_POST['password'] == $_SESSION['users']['password']){
             header("Location: credit_card.php");
             exit();
-        }else{
-            header("Location: user_virify");
-            exit();
         }
     }
 ?>
 <?php require 'header.php'; ?>
 <?php require 'menu_noswip.php'; ?>
+<?php require 'db-connect.php'; ?>
+
 <style>
     *{
     margin: 0;
@@ -124,9 +123,28 @@ header{
         <div class="error-message" id="error-msg"></div>
         <button input type="submit" class="btn" value="認証">Login</button>
      </form>
+<?php
+     if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                $mail = $_POST["mail"];
+                $pass = $_POST["password"];
+                $stmt = $pdo->prepare("SELECT * FROM users WHERE mail = ?");
+                $stmt->execute([$mail]);
+                $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                if ($row) {
+                    $upass = $row["password"];
+                    $umail = $row["mail"];
+                    if($upass != $pass || $umail != $mail){ 
+                        // パスワードが一致しない場合のエラーメッセージ
+                        echo '<div id =error>';
+                        echo '<script>document.getElementById("error-msg").innerHTML = "認証に失敗しました。";</script>';
+                        echo '</div>';
+                    }
+                }
+            }
+
+?>
 
 
-            <div class="has-text-centered pt-3"><a href="credit_card.php">クレジットカード登録の方はこちらから</a></div>
         </div>
     </div>
 </div>
