@@ -28,7 +28,16 @@ if (!isset($_SESSION['users']['id'])) {
               $sum=$_POST['count'];//合計金額の受け取り
               $plan=$_POST['paymethod'];//支払方法の受け取り
               $currentDate = date("Y-m-d"); // 現在の日付を取得 
-                 //購入に挿入するデータはユーザーidと購入日、合計金額、支払方法             
+           // 現在のポイントを取得
+$sql_get_point = $pdo->prepare('SELECT point FROM users WHERE user_id = ?');
+$sql_get_point->execute([$user_id]);
+$current_point = $sql_get_point->fetchColumn();
+// 新しいポイントを計算
+$new_point = $current_point + ($sum * 0.01);
+// ポイントを更新
+$sql_point = $pdo->prepare('UPDATE users SET point=? WHERE user_id=?');
+$sql_point->execute([$new_point, $user_id]);
+
 $sql = $pdo->prepare('INSERT INTO buy (user_id, buy_date, total, plan) VALUES (?, ?, ?, ?)');
 $sql->execute([$user_id, $currentDate, $sum, $plan]);
 
