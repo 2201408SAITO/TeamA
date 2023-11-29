@@ -1,3 +1,15 @@
+<?php session_start(); ?>
+<?php
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        if($_POST['mail'] == $_SESSION['users']['mail'] && $_POST['password'] == $_SESSION['users']['password']){
+            header("Location: credit_card.php");
+            exit();
+        }else{
+            header("Location: user_virify");
+            exit();
+        }
+    }
+?>
 <?php require 'header.php'; ?>
 <?php require 'menu_noswip.php'; ?>
 <style>
@@ -94,22 +106,26 @@ header{
     margin-top: 20px;
 }
 </style>
+
+
 <div class="bodylogin">
-<div class="wrapper">
+    <div class="wrapper">
         <div class="box login">
             <h2>本人確認</h2>
-            <form method="POST" action="credit_card.php">
-                <div class="input-box">
-                    <input type="text" name='mail' required>
-                    <label>メールアドレス</label>
-                </div>
-                <div class="input-box">
-                    <input type="password" name="password" required>
-                    <label>Password</label>
-                </div>
-                <div class="error-message" id="error-msg"></div>
-                <button input type="submit" class="btn" value="ログイン">Login</button>
-            </form>
+    <form method="POST" action="user_virify.php">
+        <div class="input-box">
+            <input type="text" name="mail" required>
+            <label>メールアドレス</label>
+        </div>
+        <div class="input-box">
+            <input type="password" name="password" required>
+            <label>Password</label>
+        </div>
+        <div class="error-message" id="error-msg"></div>
+        <button input type="submit" class="btn" value="認証">Login</button>
+     </form>
+
+
             <div class="has-text-centered pt-3"><a href="credit_card.php">クレジットカード登録の方はこちらから</a></div>
         </div>
     </div>
