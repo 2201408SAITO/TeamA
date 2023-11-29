@@ -1,5 +1,5 @@
 <?php session_start(); ?>
-<?php unset($_SESSION('users')); ?>
+<?php unset($_SESSION['users']); ?>
 <?php require 'header.php'; ?>
 <?php require 'db-connect.php'; ?>
 <?php require 'menu_noswip.php'; ?>
@@ -13,7 +13,7 @@
 <body>
     <?php
         $pdo = new PDO($connect, USER, PASS);
-        $sql=$pdo->prepare('update users set leave_date =? where users_id=?');
+        $sql=$pdo->prepare('update users set leave_date =? where user_id=?');
         $sql->execute([date("Y/m/d",time()),$_POST['user_id']]);
     ?>
 
