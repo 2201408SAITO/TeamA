@@ -22,15 +22,25 @@ require 'menu_noswip.php';
 </head>
 <body>
 
+
     <div class="wrapper">
         <section class="head">
             <h2>クレジットカード情報</h2>
         </section>
         <form method="post" action="credit_card-comp.php">
-            <p class="num">クレジットカード番号<input type="text" value="<?php echo $card; ?>" name="credit_card_number" required minlength="16" maxlength="16"></p><br>
-            <p class="expiry">クレジットカード有効期限<input type="text"value="<?php echo $_SESSION['credit_card'][$user]['expiry_month']; ?> "name="expiry_month" required maxlength="2">月
-                <input type="text"value="<?php echo $_SESSION['credit_card'][$user]['expiry_year']; ?> "name="expiry_year" required maxlength="4">年</p><br>
-            <p class="code">セキュリティコード<input type="text" value="<?php echo $_SESSION['credit_card'][$user]['security_code']; ?> "name="security_code" required maxlength="4"></p><br>
+    
+        <p class="num">クレジットカード番号
+    <input type="text" placeholder="16桁の数字で入力してください" style="width: 200px;" value="<?php echo htmlspecialchars($card); ?>" name="credit_card_number" required pattern="^[0-9]{16,16}$">
+</p><br>
+
+<p class="expiry">クレジットカード有効期限
+    <input type="text" placeholder="2桁の数字で入力してください" style="width: 200px;" value="<?php echo htmlspecialchars($_SESSION['credit_card'][$user]['expiry_month']); ?>" name="expiry_month" required pattern="^[0-9]{2,2}$">月
+    <input type="text" placeholder="4桁の数字で入力してください" style="width: 200px;" value="<?php echo htmlspecialchars($_SESSION['credit_card'][$user]['expiry_year']); ?>" name="expiry_year" required pattern="^[0-9]{4,4}$">年
+</p><br>
+
+<p class="code">セキュリティコード
+    <input type="text" placeholder="4桁の数字で入力してください" style="width: 200px;" value="<?php echo htmlspecialchars($_SESSION['credit_card'][$user]['security_code']); ?>" name="security_code" required pattern="^[0-9]{4,4}">
+</p><br>
 
             <?php 
             if ($card!=null)  {
@@ -42,6 +52,7 @@ require 'menu_noswip.php';
             }
             ?>
         </form>
+       
     </div>
 </body>
 </html>
