@@ -13,7 +13,7 @@ $sql=$pdo->prepare('select * from users where mail=?');
 $sql->execute([$_POST['mail']]);
 
 foreach($sql as $row){
-    if($_POST['password'] == $row['password']){
+    if($_POST['password'] == $row['password'] && $row['leave_date'] == NULL){
     $_SESSION['users']=[
         'id' =>$row['user_id'],
         'name'=>$row['user_name'],
