@@ -15,7 +15,6 @@
 $pdo=new PDO($connect,USER,PASS);
 if(isset($_SESSION['users'])){
     $id=$_SESSION['users']['id'];
-    $pass=$_SESSION['users']['password'];
     $sql=$pdo->prepare('select * from users where user_id!=? and mail=?');
     $sql->execute([$id,$_POST['mail']]);
 }else{
@@ -31,7 +30,7 @@ if(empty($sql->fetchAll())){
                 $_POST['phone_number'],$_POST['mail'],$id]);
             $_SESSION['users']=[
                 'id'=>$id,'name'=>$_POST['name'],'post_code'=>$_POST['post_code'],
-                'address'=>$_POST['address'],'phone_number'=>$_POST['phone_number'],'mail'=>$_POST['mail'],'password'=>$pass
+                'address'=>$_POST['address'],'phone_number'=>$_POST['phone_number'],'mail'=>$_POST['mail']
             ];
             echo '<div class ="aaa">';
             echo '<div class ="wrapper">';
@@ -46,7 +45,17 @@ if(empty($sql->fetchAll())){
             echo '</div>';
         }
 }else{
-    echo 'メールアドレスがすでに使用されています。変更してください。';
+    echo '<div class ="aaa">';
+    echo '<div class ="wrapper">';
+    echo '<div class ="out">';
+    echo '<form method="POST" action="update_user.php">';
+    echo '<div class="mes" style="text-align: center;">メールアドレスが既に使用されています変更してください';
+    echo '<button type="submit" class="btn">戻る</button>';
+    echo '</form>';
+    echo '</div>';  
+    echo '</div>';
+    echo '</div>';
+    echo '</div>';      
 }
 ?>
 <?php require 'footer.php'; ?>
