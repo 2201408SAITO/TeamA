@@ -6,6 +6,10 @@ if (!isset($_SESSION['users']['id'])) {
 }
 
 ?>
+<?php
+
+$user=$_SESSION['users']['id'];
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,11 +59,11 @@ $card=$userData['credit_card'];
     </tr>
     <tr>
       <td>クレジットカード有効期限</td>
-      <td><input type="text"name="">月 <input type="text">年</td>
+      <td><input type="text"value="<?php echo htmlspecialchars($_SESSION['credit_card'][$user]['expiry_month']); ?>"name="">月 <input type="text"value="<?php echo htmlspecialchars($_SESSION['credit_card'][$user]['expiry_year']); ?>">年</td>
     </tr>
     <tr>
       <td>セキュリティコード</td>
-      <td><input type="text"name=""></td>
+      <td><input type="text"value="<?php echo htmlspecialchars($_SESSION['credit_card'][$user]['security_code']); ?>"name=""></td>
     </tr>
   </table>
 </div>
