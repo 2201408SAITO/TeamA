@@ -1,10 +1,7 @@
-<?php
-session_start();
-require 'header.php';
-require 'menu.php';
-require 'db-connect.php';
-?>
-
+<?php session_start(); ?>
+<?php require 'header.php'; ?>
+<?php require 'menu.php'; ?>
+<?php require 'db-connect.php'; ?>
 <style>
     .designation {
         width: 400px;
@@ -32,7 +29,6 @@ require 'db-connect.php';
         object-fit: cover;
     }
 </style>
-
 <form action="index.php" method="post">
     <table>
         <?php
@@ -131,27 +127,25 @@ require 'db-connect.php';
     </table>
     <br><br><br><br><br>
     <!-- ページネーションリンク -->
-    <?php if (!isset($_POST['category']) && !isset($_POST['keyword'])) : ?>
-        <nav class="pagination is-centered" role="navigation" aria-label="pagination">
-            <?php if ($currentPage > 1) : ?>
-                <a href="?page=<?= $currentPage - 1 ?>" class="pagination-previous">前ページへ</a>
-            <?php endif; ?>
+    <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+        <?php if ($currentPage > 1) : ?>
+            <a href="?page=<?= $currentPage - 1 ?>" class="pagination-previous">前ページへ</a>
+        <?php endif; ?>
 
-            <?php if ($currentPage < ceil($totalResults / $resultsPerPage)) : ?>
-                <a href="?page=<?= $currentPage + 1 ?>" class="pagination-next">次ページへ</a>
-            <?php endif; ?>
+        <?php if ($currentPage < ceil($totalResults / $resultsPerPage)) : ?>
+            <a href="?page=<?= $currentPage + 1 ?>" class="pagination-next">次ページへ</a>
+        <?php endif; ?>
 
-            <ul class="pagination-list">
-                <?php for ($i = 1; $i <= ceil($totalResults / $resultsPerPage); $i++) : ?>
-                    <li>
-                        <a href="?page=<?= $i ?>" class="pagination-link <?= ($i === $currentPage) ? 'is-current' : '' ?>">
-                            <?= $i ?>
-                        </a>
-                    </li>
-                <?php endfor; ?>
-            </ul>
-        </nav>
-    <?php endif; ?>
+        <ul class="pagination-list">
+            <?php for ($i = 1; $i <= ceil($totalResults / $resultsPerPage); $i++) : ?>
+                <li>
+                    <a href="?page=<?= $i ?>" class="pagination-link <?= ($i === $currentPage) ? 'is-current' : '' ?>">
+                        <?= $i ?>
+                    </a>
+                </li>
+            <?php endfor; ?>
+        </ul>
+    </nav>
     <br><br><br>
 </form>
 
