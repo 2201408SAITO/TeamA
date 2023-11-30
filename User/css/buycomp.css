@@ -11,7 +11,7 @@ h1{
     font-size: 30px;
 }
 input[name="home"] {
-    /* 一般的なスタイル */
+
     padding: 10px 20px;
     font-size: 16px;
     background-color: #175222;
@@ -19,6 +19,7 @@ input[name="home"] {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-   margin-left: 45%;
-   margin-top: 50px;
+  position: fixed;
+  top:350px;
+  left:894px
 }

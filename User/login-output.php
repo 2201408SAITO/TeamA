@@ -13,16 +13,17 @@ $sql=$pdo->prepare('select * from users where mail=?');
 $sql->execute([$_POST['mail']]);
 
 foreach($sql as $row){
-    if($_POST['password'] == $row['password'] && $row['leave_date'] == NULL){
+    if($_POST['password'] == $row['password']){
     $_SESSION['users']=[
         'id' =>$row['user_id'],
         'name'=>$row['user_name'],
+        'post_code'=>$row['post_code'],
         'address'=>$row['address'],
+        'phone_number'=>$row['phone_number'],
         'mail'=>$row['mail'],
         'password'=>$row['password']];
     }
 }
-
 if(isset($_SESSION['users'])){
     echo '<div class ="aaa">';
     echo '<div class ="wrapper">';
