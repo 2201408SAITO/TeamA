@@ -61,7 +61,7 @@
                     </div>
                     <div>
                         <label>商品名：</label>
-                        <input name="name" class="input-box" type="text" style="padding: 5px;" placeholder="商品名を入力してください" required="required">
+                        <input name="name" class="input-box" type="text" style="padding: 5px;" placeholder="商品名を入力してください" maxlength="50" required="required">
                     </div>
                     <div>
                         <label>販売単価：</label>
