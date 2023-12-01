@@ -63,7 +63,7 @@ $card=$userData['credit_card'];
     </tr>
     <tr>
       <td>セキュリティコード</td>
-      <td><input type="text"placeholder="2桁の数字で入力" style="width: 200px;"value="<?php echo htmlspecialchars($_SESSION['credit_card'][$user]['security_code']); ?>"name=""required pattern="^[0-9]{4,4}"></td>
+      <td><input type="text"placeholder="3桁の数字で入力" style="width: 200px;"value="<?php echo htmlspecialchars($_SESSION['credit_card'][$user]['security_code']); ?>"name=""required pattern="^[0-9]{3,3}"></td>
     </tr>
   </table>
 </div>

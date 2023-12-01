@@ -39,7 +39,7 @@ require 'menu_noswip.php';
 </p><br>
 
 <p class="code">セキュリティコード
-    <input type="text" placeholder="4桁の数字で入力してください" style="width: 200px;" value="<?php echo htmlspecialchars($_SESSION['credit_card'][$user]['security_code']); ?>" name="security_code" required pattern="^[0-9]{4,4}">
+    <input type="text" placeholder="3桁の数字で入力してください" style="width: 200px;" value="<?php echo htmlspecialchars($_SESSION['credit_card'][$user]['security_code']); ?>" name="security_code" required pattern="^[0-9]{3,3}">
 </p><br>
 
             <?php 
