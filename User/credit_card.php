@@ -34,8 +34,8 @@ require 'menu_noswip.php';
 </p><br>
 
 <p class="expiry">クレジットカード有効期限
-    <input type="text" placeholder="2桁の数字で入力" style="outline:none; border-color:seagreen;width: 200px;" value="<?php echo htmlspecialchars($_SESSION['credit_card'][$user]['expiry_month']); ?>"class="input is-normal" name="expiry_month" required pattern="^[0-9]{2,2}$">月
-    <input type="text" placeholder="4桁の数字で入力" style="outline:none; border-color:seagreen;width: 200px;" value="<?php echo htmlspecialchars($_SESSION['credit_card'][$user]['expiry_year']); ?>"class="input is-normal" name="expiry_year" required pattern="^[0-9]{4,4}$">年
+<input type="text" placeholder="2桁の数字で入力(1月→01月)" style="outline:none; border-color:seagreen; width: 230px;" value="<?php echo htmlspecialchars($_SESSION['credit_card'][$user]['expiry_month']); ?>" class="input is-normal" name="expiry_month" required pattern="^(0[1-9]|1[0-2])$">月
+    <input type="text" placeholder="4桁の数字で入力" style="outline:none; border-color:seagreen;width: 230px;" value="<?php echo htmlspecialchars($_SESSION['credit_card'][$user]['expiry_year']); ?>"class="input is-normal" name="expiry_year" required pattern="^[0-9]{4,4}$">年
 </p><br>
 
 <p class="code">セキュリティコード
