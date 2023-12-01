@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <?php require 'header.php'; ?>
 <?php require 'menu.php'; ?>
 <?php require 'db-connect.php'; ?>
@@ -75,11 +74,12 @@
         $sql->execute();
 
         // 検索条件がない場合の総商品数の取得
-        if (!isset($_POST['category']) && !isset($_POST['keyword'])) {
+        if (($_POST['category']==0) && ($_POST['keyword']=="")) {
             $totalResults = $pdo->query('SELECT COUNT(*) FROM goods')->fetchColumn();
         } else {
             // 検索条件がある場合は、条件に応じた商品数を取得
             $totalResults = $sql->rowCount();
+            
         }
 
         echo '<br><br><br><br><br>';
@@ -138,17 +138,22 @@
 
         <ul class="pagination-list">
             <?php for ($i = 1; $i <= ceil($totalResults / $resultsPerPage); $i++) : ?>
+                <?php
+                if($currentPage != $i){
+                ?>
                 <li>
                     <a href="?page=<?= $i ?>" class="pagination-link <?= ($i === $currentPage) ? 'is-current' : '' ?>">
                         <?= $i ?>
                     </a>
                 </li>
+                <?php
+                }
+                ?>
             <?php endfor; ?>
         </ul>
     </nav>
     <br><br><br>
 </form>
 
-<br><br><br><br>
-<hr>
+<br><br><br>
 <?php require 'footer.php'; ?>

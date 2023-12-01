@@ -5,8 +5,8 @@
 <a href="index.php" ><img src="img/logo.png" class="logo" alt="" width="100" height="85"></a>
     <div class="level-item">
     <div class="select is-normal">
-    <select name="category" style="border-radius: 25px; outline:none; border-color:seagreen; margin-right:5px;">
-    <option value="">カテゴリー</option>
+    <select name="category" value="0" style="border-radius: 25px; outline:none; border-color:seagreen; margin-right:5px;">
+        <option value="0">カテゴリー</option>
         <option value="1">家具</option>
         <option value="2">ゲーム</option>
         <option value="3">家電</option>
@@ -19,7 +19,7 @@
     </select>
     </div>
     <div class="control">
-    <input type="text" name="keyword" class="input is-normal" style="border-radius: 25px; outline:none; border-color:seagreen; width:500px; padding: 0 50px 0 10px;" length="" type="text" placeholder="Search">
+    <input type="text" name="keyword" value="" class="input is-normal" style="border-radius: 25px; outline:none; border-color:seagreen; width:500px; padding: 0 50px 0 10px;" length="" type="text" placeholder="Search">
     </div>
     <button class="button">
         <span class="icon is-small">

@@ -6,7 +6,7 @@
     <div class="level-item">
     <div class="select is-normal">
     <select name="category" style="border-radius: 25px; outline:none; border-color:seagreen; margin-right:5px;">
-    <option value="">カテゴリー</option>
+        <option value="0">カテゴリー</option>
         <option value="1">家具</option>
         <option value="2">ゲーム</option>
         <option value="3">家電</option>
