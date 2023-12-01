@@ -19,6 +19,7 @@
                 echo '<header>';
                 echo '<img style="user-select: none;" src="img/logo.png" class="logo" alt="" width="100" height="65">';
                 echo     '<nav class="logout">';
+                echo 'こんにちは、<strong>'.$_SESSION['manager']['name'].'</strong>&nbsp;';
                 echo         '<a href="ManageLogin.php">ログアウト</a>';
                 echo     '</nav>';
                 echo '</header>';
