@@ -55,15 +55,15 @@ $card=$userData['credit_card'];
   <table class="table is-bordered">
     <tr>
       <td>クレジットカード番号</td>
-      <td><input type="text" value="<?php echo $card; ?>" name="card"></td>
+      <td><input type="text"placeholder="16桁の数字で入力"style="width: 200px;" value="<?php echo $card; ?>" name="card"required pattern="^[0-9]{16,16}$"></td>
     </tr>
     <tr>
       <td>クレジットカード有効期限</td>
-      <td><input type="text"value="<?php echo htmlspecialchars($_SESSION['credit_card'][$user]['expiry_month']); ?>"name="">月 <input type="text"value="<?php echo htmlspecialchars($_SESSION['credit_card'][$user]['expiry_year']); ?>">年</td>
+      <td><input type="text"placeholder="2桁の数字で入力" style="width: 150px;"value="<?php echo htmlspecialchars($_SESSION['credit_card'][$user]['expiry_month']); ?>"name=""required pattern="^[0-9]{2,2}$">月 <input type="text"placeholder="4桁の数字で入力" style="width: 180px;"value="<?php echo htmlspecialchars($_SESSION['credit_card'][$user]['expiry_year']); ?>" required pattern="^[0-9]{4,4}$">年</td>
     </tr>
     <tr>
       <td>セキュリティコード</td>
-      <td><input type="text"value="<?php echo htmlspecialchars($_SESSION['credit_card'][$user]['security_code']); ?>"name=""></td>
+      <td><input type="text"placeholder="2桁の数字で入力" style="width: 200px;"value="<?php echo htmlspecialchars($_SESSION['credit_card'][$user]['security_code']); ?>"name=""required pattern="^[0-9]{4,4}"></td>
     </tr>
   </table>
 </div>
