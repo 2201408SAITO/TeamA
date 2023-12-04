@@ -88,7 +88,7 @@ require 'db-connect.php';
                     }
                 }else{
                         foreach ($Oimages as $i => $file) {
-                            rename($file, $path1.'/'.pathinfo($file,PATHINFO_FILENAME).'.jpg');
+                            rename($file, $path1.'/'.pathinfo($file,PATHINFO_FILENAME).'.'.pathinfo($file,PATHINFO_EXTENSION));
 
                         }
                 }
