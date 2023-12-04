@@ -41,7 +41,7 @@
     echo '<input type="text" name="address" class="input is-normal" style="outline:none; border-color:seagreen; width:500px;" value="',$address,'">';
     echo '</p>';
     echo '<p>電話番号　　　　';
-    echo '<input type="text" name="phone_number" class="input is-normal" oninput="this.value = this.value.replace(/[^0-9.]/g, "").replace(/(\..*)\./g, "$1");" style="outline:none; border-color:seagreen; width:500px;" value="',$phone_number,'">';
+    echo '<input type="text" name="phone_number" class="input is-normal" style="outline:none; border-color:seagreen; width:500px;" value="',$phone_number,'">';
     echo '</p>';
     echo '<p>メールアドレス　';
     echo '<input type="email" name="mail" class="input is-normal" style="outline:none; border-color:seagreen; width:500px;" value="',$mail,'">';
@@ -54,4 +54,7 @@
     echo '<input type="submit" class="btn" value="更新">';
     echo '</form>';
 ?>
+
+<script src="js/jquery-3.7.0.min.js"></script>
+<script src="js/addsearch.js"></script>
 <?php require 'footer.php'; ?>
