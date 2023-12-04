@@ -100,7 +100,7 @@ header{
             <h2>Login</h2>
             <form method="POST" action="login-output.php">
                 <div class="input-box">
-                    <input type="text" name='mail' required>
+                    <input type="email" name='mail' required>
                     <label>メールアドレス</label>
                 </div>
                 <div class="input-box">

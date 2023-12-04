@@ -52,7 +52,7 @@
                     <label>電話番号</label>
                 </div>
                 <div class="input-box">
-                    <input type="text" name="mail" maxlength="50" required>
+                    <input type="email" name="mail" maxlength="50" required>
                     <label>メールアドレス</label>
                 </div>
                 <div class="input-box">
