@@ -46,7 +46,7 @@
     echo '<input type="text" name="phone_number" class="input is-normal" pattern="^[0-9]+$" minlength="10"  maxlength="12" style="outline:none; border-color:seagreen; width:500px;" value="',$phone_number,'">';
     echo '</p>';
     echo '<p>メールアドレス　';
-    echo '<input type="email" name="mail" class="input is-normal" style="outline:none; border-color:seagreen; width:500px;" value="',$mail,'">';
+    echo '<input type="text" name="mail" class="input is-normal" style="outline:none; border-color:seagreen; width:500px;" value="',$mail,'">';
     echo '</p>';
     echo '<hr>';
 
