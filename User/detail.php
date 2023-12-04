@@ -6,6 +6,9 @@
         <meta charset="UTF-8">   
         <title>商品更新画面</title>
         <link rel="stylesheet" href="css/detail.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js" type="text/javascript"></script>
     </head>
 
     <body>
@@ -40,7 +43,8 @@
                     if (!empty($images)) {
                         foreach ($images as $image) {
                             $fileName = basename($image);
-                        echo '<img src="' . $image . '" class="UpdatedImages" alt="' . $fileName . '" width="65" height="65">';
+                            echo '<a href="' . $image . '" data-lightbox="group"><img src="' . $image . '" class="UpdatedImages" style="cursor: zoom-in;" alt="' . $fileName . '" width="65" height="65"></a>';
+
                         }
                     }else{
                         echo 'No images';
