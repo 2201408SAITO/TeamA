@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>購入履歴詳細一覧</title>
     <link rel="stylesheet" href="css/buydetail.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js" type="text/javascript"></script>
 </head>
 
 
@@ -60,7 +63,9 @@
 
                 echo '<tr>';
                 // 商品画像を表示するためのコード
-                echo '<td><img src="' . $firstImage . '" alt="' . $catename . '" width="100" height="100"class="UpdatedImages"></td>';
+                echo '<td>';
+                echo '<a href="' . $firstImage . '" data-lightbox="group"><img src="' . $firstImage . '" alt="no image" width="100" height="100" class="UpdatedImages" style="cursor: zoom-in;"></a>';
+                echo '</td>';
                 echo '<td style="word-break: break-word">', $row['商品名'], '</td>';
                 echo '<td style="word-break: break-word">', $row['値段'], '</td>';
                 echo '<td style="word-break: break-word">', $row['数量'], '</td>';
