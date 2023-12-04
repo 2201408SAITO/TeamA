@@ -37,13 +37,13 @@
     echo '<input type="text" name="name" class="input is-normal" style="outline:none; border-color:seagreen; width:500px;" value="',$name,'">';
     echo '</p>';
     echo '<p>郵便番号　　　　';
-    echo '<input type="text" name="post_code" class="input is-normal" style="outline:none; border-color:seagreen; width:500px;" value="',$post_code,'">';
+    echo '<input type="text" name="post_code" class="input is-normal" pattern="^[0-9]+$" minlength="7" maxlength="7" style="outline:none; border-color:seagreen; width:500px;" value="',$post_code,'">';
     echo '</p>';
     echo '<p>住所　　　　　　';
     echo '<input type="text" name="address" class="input is-normal" style="outline:none; border-color:seagreen; width:500px;" value="',$address,'">';
     echo '</p>';
     echo '<p>電話番号　　　　';
-    echo '<input type="text" name="phone_number" class="input is-normal" style="outline:none; border-color:seagreen; width:500px;" value="',$phone_number,'">';
+    echo '<input type="text" name="phone_number" class="input is-normal" pattern="^[0-9]+$" minlength="10"  maxlength="12" style="outline:none; border-color:seagreen; width:500px;" value="',$phone_number,'">';
     echo '</p>';
     echo '<p>メールアドレス　';
     echo '<input type="email" name="mail" class="input is-normal" style="outline:none; border-color:seagreen; width:500px;" value="',$mail,'">';

@@ -35,7 +35,7 @@
                     <label>名前</label>
                 </div>
                 <div class="input-box">
-                    <input id="postcode" type="text" name="postcode" maxlength="7" 
+                    <input id="postcode" type="text" name="postcode" minlength="7" maxlength="7" 
                     oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required>
                     <button id="button">検索</button>
                     <label>郵便番号</label>
@@ -47,7 +47,7 @@
                     <label>住所</label>
                 </div>
                 <div class="input-box">
-                    <input type="text" name="phoneNumber" maxlength="12" 
+                    <input type="text" name="phoneNumber" minlength="10"  maxlength="12" 
                     oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required>
                     <label>電話番号</label>
                 </div>
