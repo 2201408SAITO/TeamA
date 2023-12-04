@@ -8,6 +8,8 @@
     <meta charset="UTF-8">
     <title>Mypage</title>
     <link rel="stylesheet" href="css/update_user.css"> 
+    <script src="js/jquery-3.7.0.min.js"></script>
+    <script src="js/addsearch.js"></script>
 </head>
 <body>
 <br><br><br><br><br>
@@ -55,6 +57,4 @@
     echo '</form>';
 ?>
 
-<script src="js/jquery-3.7.0.min.js"></script>
-<script src="js/addsearch.js"></script>
 <?php require 'footer.php'; ?>
