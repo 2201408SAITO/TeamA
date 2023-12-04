@@ -113,7 +113,7 @@ header{
             <h2>本人確認</h2>
     <form method="POST" action="user_virify.php">
         <div class="input-box">
-            <input type="email" name="mail" required>
+            <input type="text" name="mail" required>
             <label>メールアドレス</label>
         </div>
         <div class="input-box">
