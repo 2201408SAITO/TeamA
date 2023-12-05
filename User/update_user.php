@@ -16,6 +16,8 @@
 <div class="main">ユーザー情報</div>
 <br>
 <?php
+
+$oninput ="this.value = this.value.replace(/[^0-9.]/g, '');";
     // ログインしているユーザーの情報を取得する
     $sql = $pdo->prepare('SELECT * FROM users WHERE user_id = ?');
     $sql->execute([$_SESSION['users']['id']]);
@@ -37,13 +39,13 @@
     echo '<input type="text" name="name" class="input is-normal" style="outline:none; border-color:seagreen; width:500px;" value="',$name,'">';
     echo '</p>';
     echo '<p>郵便番号　　　　';
-    echo '<input type="text" name="post_code" class="input is-normal" pattern="^[0-9]+$" minlength="7" maxlength="7" style="outline:none; border-color:seagreen; width:500px;" value="',$post_code,'">';
+    echo '<input type="text" name="post_code" class="input is-normal" oninput="' , $oninput , '" minlength="7" maxlength="7" style="outline:none; border-color:seagreen; width:500px;" value="',$post_code,'">';
     echo '</p>';
     echo '<p>住所　　　　　　';
     echo '<input type="text" name="address" class="input is-normal" style="outline:none; border-color:seagreen; width:500px;" value="',$address,'">';
     echo '</p>';
     echo '<p>電話番号　　　　';
-    echo '<input type="text" name="phone_number" class="input is-normal" pattern="^[0-9]+$" minlength="10"  maxlength="12" style="outline:none; border-color:seagreen; width:500px;" value="',$phone_number,'">';
+    echo '<input type="text" name="phone_number" class="input is-normal" oninput="' , $oninput , '" minlength="10"  maxlength="12" style="outline:none; border-color:seagreen; width:500px;" value="',$phone_number,'">';
     echo '</p>';
     echo '<p>メールアドレス　';
     echo '<input type="text" name="mail" class="input is-normal" style="outline:none; border-color:seagreen; width:500px;" value="',$mail,'">';
@@ -51,7 +53,6 @@
     echo '<hr>';
 
     echo '<div class="but">';
-    echo '<form action="mypage.php" method="post">';
     echo '<input type="hidden" name="user_id" value="', $row['user_id'], '">';
     echo '<input type="submit" class="btn" value="更新">';
     echo '</form>';
