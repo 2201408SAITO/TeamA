@@ -36,19 +36,19 @@ $oninput ="this.value = this.value.replace(/[^0-9.]/g, '');";
     }
     echo '<form action="update_user_output.php" method="post">';
     echo '<p>名前　　　　　　';
-    echo '<input type="text" name="name" class="input is-normal" style="outline:none; border-color:seagreen; width:500px;" value="',$name,'">';
+    echo '<input type="text" name="name" class="input is-normal" maxlength="30" style="outline:none; border-color:seagreen; width:500px;" value="',$name,'">';
     echo '</p>';
     echo '<p>郵便番号　　　　';
     echo '<input type="text" name="post_code" class="input is-normal" oninput="' , $oninput , '" minlength="7" maxlength="7" style="outline:none; border-color:seagreen; width:500px;" value="',$post_code,'">';
     echo '</p>';
     echo '<p>住所　　　　　　';
-    echo '<input type="text" name="address" class="input is-normal" style="outline:none; border-color:seagreen; width:500px;" value="',$address,'">';
+    echo '<input type="text" name="address"maxlength="100"class="input is-normal" style="outline:none; border-color:seagreen; width:500px;" value="',$address,'">';
     echo '</p>';
     echo '<p>電話番号　　　　';
     echo '<input type="text" name="phone_number" class="input is-normal" oninput="' , $oninput , '" minlength="10"  maxlength="12" style="outline:none; border-color:seagreen; width:500px;" value="',$phone_number,'">';
     echo '</p>';
     echo '<p>メールアドレス　';
-    echo '<input type="text" name="mail" class="input is-normal" style="outline:none; border-color:seagreen; width:500px;" value="',$mail,'">';
+    echo '<input type="text" name="mail"maxlength="50" class="input is-normal" style="outline:none; border-color:seagreen; width:500px;" value="',$mail,'">';
     echo '</p>';
     echo '<hr>';
 
