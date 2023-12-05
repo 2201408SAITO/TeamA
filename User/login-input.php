@@ -100,11 +100,11 @@ header{
             <h2>Login</h2>
             <form method="POST" action="login-output.php">
                 <div class="input-box">
-                    <input type="text" name='mail' required>
+                    <input type="text" name='mail'maxlength="50" required>
                     <label>メールアドレス</label>
                 </div>
                 <div class="input-box">
-                    <input type="password" name="password" required>
+                    <input type="password" name="password" maxlength="20" required>
                     <label>Password</label>
                 </div>
                 <div class="error-message" id="error-msg"></div>
