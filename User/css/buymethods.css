@@ -12,7 +12,6 @@
 }
 .foot {
     text-align: center;
-    position: fixed;
     left: 34%;
     bottom: 170px; /* 画面下部からの距離を調整 */
     
