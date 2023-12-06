@@ -32,12 +32,16 @@ if (!isset($_SESSION['users']['id'])) {
     $sql_get_point->execute([$user_id]);
     $current_point = $sql_get_point->fetchColumn();
 
+    //使用したポイントを計算
+    $current_point -= $_POST['use_point'];
+
     // 新しいポイントを計算
     $new_point = $current_point + ($sum * 0.01);
 
     // ポイントを更新
     $sql_point = $pdo->prepare('UPDATE users SET point=? WHERE user_id=?');
     $sql_point->execute([$new_point, $user_id]);
+
 
     $sql = $pdo->prepare('INSERT INTO buy (user_id, buy_date, total, plan, use_point) VALUES (?, ?, ?, ?, ?)');
     $sql->execute([$user_id, $currentDate, $sum, $plan, $_POST['use_point']]);

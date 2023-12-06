@@ -5,7 +5,7 @@
 <style>
     .designation {
         width: 400px;
-        height: 400px;
+        height: 240px;
     }
 
     .flex-item {
@@ -25,7 +25,6 @@
         left: 50%;
         transform: translate(-50%, -50%);
         width: 400px;
-        height: 400px;
         object-fit: cover;
     }
 </style>
