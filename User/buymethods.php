@@ -6,6 +6,7 @@ if (!isset($_SESSION['users']['id'])) {
 }
 
 ?>
+<?php require 'db-connect.php'; ?>
 <?php
 
 $user=$_SESSION['users']['id'];
@@ -56,20 +57,44 @@ $card=$userData['credit_card'];
   <tr>
     <td>クレジットカード番号</td>
     <td>
-        <input type="text" placeholder="16桁の数字で入力" style="outline:none; border-color:seagreen; width: 200px;" value="<?php echo $card; ?>" class="input is-normal" name="card" required pattern="^[0-9]{16}$" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('16桁の数字を入力してください。')">
+        <input type="text" placeholder="16桁の数字で入力" style="outline:none; border-color:seagreen; width: 200px;" value="<?php echo $card; ?>" 
+        class="input is-normal" name="card" required pattern="^[0-9]{16}$" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('16桁の数字を入力してください。')">
     </td>
 </tr>
 <tr>
     <td>クレジットカード有効期限</td>
     <td>
-        <input type="text" placeholder="2桁の数字で入力" style="outline:none; border-color:seagreen; width: 150px;" value="<?php echo htmlspecialchars($_SESSION['credit_card'][$user]['expiry_month']); ?>" class="input is-normal" name="expiry_month" required pattern="^(0[1-9]|1[0-2])$" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('2桁の数字を入力してください。例(1月→01月)')">月
-        <input type="text" placeholder="4桁の数字で入力" style="outline:none; border-color:seagreen; width: 150px;" value="<?php echo htmlspecialchars($_SESSION['credit_card'][$user]['expiry_year']); ?>" class="input is-normal" name="expiry_year" required pattern="^[0-9]{4}$" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('4桁の数字を入力してください。')">年
+        <input type="text" placeholder="2桁の数字で入力" style="outline:none; border-color:seagreen; width: 150px;" value="<?php echo htmlspecialchars($_SESSION['credit_card'][$user]['expiry_month']); ?>" 
+        class="input is-normal" name="expiry_month" required pattern="^(0[1-9]|1[0-2])$" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('2桁の数字を入力してください。例(1月→01月)')">月
+        <input type="text" placeholder="4桁の数字で入力" style="outline:none; border-color:seagreen; width: 150px;" value="<?php echo htmlspecialchars($_SESSION['credit_card'][$user]['expiry_year']); ?>" 
+        class="input is-normal" name="expiry_year" required pattern="^[0-9]{4}$" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('4桁の数字を入力してください。')">年
     </td>
 </tr>
 <tr>
     <td>セキュリティコード</td>
     <td>
-        <input type="text" placeholder="3桁の数字で入力" style="outline:none; border-color:seagreen; width: 150px;" value="<?php echo htmlspecialchars($_SESSION['credit_card'][$user]['security_code']); ?>" class="input is-normal" name="security_code" required pattern="^[0-9]{3}$" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('3桁の数字を入力してください。')">
+        <input type="text" placeholder="3桁の数字で入力" style="outline:none; border-color:seagreen; width: 150px;" value="<?php echo htmlspecialchars($_SESSION['credit_card'][$user]['security_code']); ?>" 
+        class="input is-normal" name="security_code" required pattern="^[0-9]{3}$" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('3桁の数字を入力してください。')">
+    </td>
+</tr>
+
+<?php
+  $sql = $pdo->prepare('SELECT point FROM users WHERE user_id = ?');
+  $sql->execute([$_SESSION['users']['id']]);
+  $row = $sql->fetch(PDO::FETCH_ASSOC);
+?>
+
+
+<tr>
+    <td>使用ポイント</td>
+    <td>
+        <input type="number"  name="use_point" value="0" placeholder="3桁の数字で入力" 
+        max="<?php if($_POST['count'] >= $row['point']){
+            echo $row['point'];
+        }else{
+            echo $_POST['count'];
+        } ?>" 
+        style="outline:none; border-color:seagreen; width: 150px;" class="input is-normal">
     </td>
 </tr>
 
@@ -89,7 +114,7 @@ $card=$userData['credit_card'];
       <table class="table"id="myTable">
         <tr>
           <td class="warning">
-            <p>*お支払い回数は一括払いのみになります。</p><br>
+            <p>*お支払い方法は一括払いのみになります。</p><br>
             <p>*お届け先はMyPageで登録された住所になります。</p><br>
             <p>*代引きの場合は手数料770円発生します。</p>
          

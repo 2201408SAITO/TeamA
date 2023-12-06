@@ -24,9 +24,11 @@
         <?php
         require 'db-connect.php';
 
+        $buyId = $_POST['buy_id'];
+
         if (isset($_POST['buy_id'])) {
             // 購入履歴詳細SQL
-            $buyId = $_POST['buy_id'];
+            
             $detailSql = $pdo->prepare('
                 SELECT 
                     g.goods_name AS 商品名,
@@ -81,13 +83,21 @@
             echo '購入IDが指定されていません。';
         }
         ?>
+
+        <?php
+          $sql = $pdo->prepare('SELECT use_point FROM buy WHERE buy_id = ? AND user_id = ?');
+          $sql->execute([$_POST['buy_id'] ,$_SESSION['users']['id']]);
+          $row = $sql->fetch(PDO::FETCH_ASSOC);
+
+          echo '使用ポイント：', $row['use_point'];
+        ?>
     </section>
     <section class="foot">
         <form action="buylist.php" method="post">
             <button class="register" type="submit">戻る</button>
         </form>
         <span class="price">合計金額</span>
-        <?php  echo '<span class="price-output">'.$total.'</span>';   
+        <?php  echo '<span class="price-output">'.$total-=$row['use_point'].'</span>';   
         ?>
     </section>
 </main>

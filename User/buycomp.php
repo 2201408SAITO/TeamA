@@ -23,7 +23,7 @@ if (!isset($_SESSION['users']['id'])) {
     </form>
     <?php          
     $user_id = $_SESSION['users']['id'];
-    $sum = $_POST['count'];
+    $sum = $_POST['count'] - $_POST['use_point'];
     $plan = $_POST['paymethod'];
     $currentDate = date("Y-m-d");
 
@@ -39,8 +39,8 @@ if (!isset($_SESSION['users']['id'])) {
     $sql_point = $pdo->prepare('UPDATE users SET point=? WHERE user_id=?');
     $sql_point->execute([$new_point, $user_id]);
 
-    $sql = $pdo->prepare('INSERT INTO buy (user_id, buy_date, total, plan) VALUES (?, ?, ?, ?)');
-    $sql->execute([$user_id, $currentDate, $sum, $plan]);
+    $sql = $pdo->prepare('INSERT INTO buy (user_id, buy_date, total, plan, use_point) VALUES (?, ?, ?, ?, ?)');
+    $sql->execute([$user_id, $currentDate, $sum, $plan, $_POST['use_point']]);
 
     // 直前に挿入した購入のIDを取得
     $buy_id = $pdo->lastInsertId();
