@@ -88,7 +88,7 @@ $card=$userData['credit_card'];
 <tr>
     <td>使用ポイント</td>
     <td>
-        <input type="number"  name="use_point" value="0" placeholder="3桁の数字で入力" 
+        <input type="number"  name="use_point" value="0"  min="0"
         max="<?php if($_POST['count'] >= $row['point']){
             echo $row['point'];
         }else{
@@ -105,6 +105,29 @@ $card=$userData['credit_card'];
         <!-- 代引きの場合のフォームなどを追加 -->
         <div v-if="acitivePriceTab" class="field">
           <!-- 代引きのフォームを追加 -->
+          <table class="table is-bordered">
+
+<?php
+  $sql = $pdo->prepare('SELECT point FROM users WHERE user_id = ?');
+  $sql->execute([$_SESSION['users']['id']]);
+  $row = $sql->fetch(PDO::FETCH_ASSOC);
+?>
+
+
+<tr>
+    <td>使用ポイント</td>
+    <td>
+        <input type="number"  name="use_point" value="0" min="0" 
+        max="<?php if($_POST['count'] >= $row['point']){
+            echo $row['point'];
+        }else{
+            echo $_POST['count'];
+        } ?>" 
+        style="outline:none; border-color:seagreen; width: 150px;" class="input is-normal">
+    </td>
+</tr>
+
+  </table>
         </div>
       </div>
     </div>
