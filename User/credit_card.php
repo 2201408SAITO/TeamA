@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (!isset($_SESSION['users']['id'])) {
+    header('Location:login-input.php');
+    exit(); // これ以降のコードを実行しない
+}
 require 'db-connect.php';
 $sql = $pdo->prepare('select credit_card from users where user_id = ?');
 $sql->execute([$_SESSION['users']['id']]);

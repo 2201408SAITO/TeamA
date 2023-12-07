@@ -1,4 +1,9 @@
-<?php session_start();?>
+<?php session_start();
+if (!isset($_SESSION['users']['id'])) {
+    header('Location: https://aso2201418.vivian.jp/GitHub/TeamA/User/login-input.php');
+    exit(); // これ以降のコードを実行しない
+}
+?>
 <!DOCTYPE html>
 <html lang="jp">
 <head>
@@ -89,7 +94,7 @@
           $sql->execute([$_POST['buy_id'] ,$_SESSION['users']['id']]);
           $row = $sql->fetch(PDO::FETCH_ASSOC);
 
-          echo '<p style="text-align: right; font-size: 1.5em;">使用ポイント：', $row['use_point'], '</p>';
+          echo '使用ポイント：', $row['use_point'];
         ?>
     </section>
     <section class="foot">

@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (!isset($_SESSION['users']['id'])) {
+    header('Location:login-input.php');
+    exit(); // これ以降のコードを実行しない
+}
 require 'header.php';
 require 'menu_noswip.php';
 require 'db-connect.php';

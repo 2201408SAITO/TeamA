@@ -1,4 +1,9 @@
-<?php session_start(); ?>
+<?php session_start(); 
+if (!isset($_SESSION['users']['id'])) {
+    header('Location:login-input.php');
+    exit(); // これ以降のコードを実行しない
+}
+?>
 <?php unset($_SESSION['users']); ?>
 <?php require 'header.php'; ?>
 <?php require 'db-connect.php'; ?>
