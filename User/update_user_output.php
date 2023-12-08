@@ -18,7 +18,7 @@ if (!isset($_SESSION['users']['id'])) {
 <br><br><br>
 <?php
 $pdo=new PDO($connect,USER,PASS);
-
+$pass=$_SESSION['users']['password'];
 if(isset($_SESSION['users'])){
     $id=$_SESSION['users']['id'];
     $sql=$pdo->prepare('select * from users where user_id!=? and mail=?');
@@ -38,7 +38,7 @@ if(strlen($_POST['post_code']) == 7){
                     $_POST['phone_number'],$_POST['mail'],$id]);
                 $_SESSION['users']=[
                     'id'=>$id,'name'=>$_POST['name'],'post_code'=>$_POST['post_code'],
-                    'address'=>$_POST['address'],'phone_number'=>$_POST['phone_number'],'mail'=>$_POST['mail']
+                    'address'=>$_POST['address'],'phone_number'=>$_POST['phone_number'],'mail'=>$_POST['mail'],'password'=>$pass
                 ];
                 echo '<div class ="aaa">';
                 echo '<div class ="wrapper">';
