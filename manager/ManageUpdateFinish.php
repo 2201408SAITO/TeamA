@@ -59,7 +59,6 @@ require 'db-connect.php';
 
                 // ファイルが複数アップロードされた場合の処理
                 $numFiles = count($_FILES['files']['name']);
-                $numOldFiles = count($Oimages);
                 
                 for ($i = 0; $i < $numFiles; $i++) {
                     $currentFile = $_FILES['files']['tmp_name'][$i];
